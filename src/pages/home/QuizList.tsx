@@ -8,7 +8,7 @@ export const QuizList: React.FC = () => {
 
   return (
     <section className="text-center font-semibold mt-8 pb-8 tracking-wider">
-      <h1 className="text-3xl text-start text-black dark:text-white">
+      <h1 className="text-4xl text-start text-black dark:text-white">
         Finance Quiz
       </h1>
       {status === "loading" && <p>Loading...</p>}
