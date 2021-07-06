@@ -10,16 +10,9 @@ export const NavDesktop = () => {
         Home
       </p>
 
-      <div className="text-xl sm:text-xl  cursor-pointer sm:hidden">
-        <Home />
-      </div>
-
       <p className="sm:block text-lg font-semibold dark:text-gray-50 cursor-pointer  dark:hover:text-dark-200 hover:text-gray-700">
         Account
       </p>
-      <div className="text-xl sm:text-xl cursor-pointer sm:hidden">
-        <User />
-      </div>
 
       <div
         className="cursor-pointer flex items-center text-2xl sm:text-xl  dark:hover:text-dark-200 hover:text-gray-700"

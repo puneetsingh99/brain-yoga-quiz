@@ -736,6 +736,10 @@ video {
   width: 2.5rem;
 }
 
+.w-6\/12{
+  width: 50%;
+}
+
 .cursor-pointer{
   cursor: pointer;
 }
@@ -842,6 +846,14 @@ video {
 
 .pb-8{
   padding-bottom: 2rem;
+}
+
+.pb-12{
+  padding-bottom: 3rem;
+}
+
+.pb-16{
+  padding-bottom: 4rem;
 }
 
 .text-center{
