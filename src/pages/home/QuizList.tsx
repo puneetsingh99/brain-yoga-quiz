@@ -8,9 +8,6 @@ export const QuizList: React.FC = () => {
 
   return (
     <section className="text-center font-semibold mt-8 pb-8 tracking-wider">
-      <h1 className="text-4xl text-start text-black dark:text-white">
-        Finance Quiz
-      </h1>
       {status === "loading" && <p>Loading...</p>}
       {status === "success" && (
         <ul className="flex flex-wrap justify-center sm:justify-start gap-12 mt-8">

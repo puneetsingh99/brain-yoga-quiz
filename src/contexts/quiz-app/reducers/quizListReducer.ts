@@ -1,10 +1,10 @@
 import { ACTIONTYPE } from "../../../types";
-import { QuizContext } from "../../../types";
+import { QuizzesContext } from "../../../types";
 
-export const quizReducer = (
-  state: QuizContext,
+export const quizListReducer = (
+  state: QuizzesContext,
   action: ACTIONTYPE
-): QuizContext => {
+): QuizzesContext => {
   switch (action.type) {
     case "SET_QUIZZES":
       return { ...state, quizzes: action.payload };

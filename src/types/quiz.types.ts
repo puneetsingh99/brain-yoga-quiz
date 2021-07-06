@@ -1,5 +1,5 @@
 import { ServerError } from "../services/serverError.types";
-import { Status } from "../services/status.types";
+import { Status } from "./status.types";
 
 export type ACTIONTYPE =
   | {
@@ -57,7 +57,7 @@ export type User = {
   updatedAt: string;
 };
 
-export type QuizContext = {
+export type QuizzesContext = {
   status: Status;
   quizzes: Quiz[] | null;
   error: ServerError | null;

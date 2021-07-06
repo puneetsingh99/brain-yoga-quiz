@@ -1,6 +1,6 @@
 import React from "react";
 import { QuizList } from "./QuizList";
-import { Navbar } from "../../components";
+import { Navbar, NavMobile } from "../../components";
 
 export const Home: React.FC = () => {
   return (
@@ -9,6 +9,7 @@ export const Home: React.FC = () => {
       <main className="w-11/12 m-auto">
         <QuizList />
       </main>
+      <NavMobile />
     </>
   );
 };
