@@ -1,6 +1,8 @@
-export { ThemeContext, ThemeProvider } from "./theme/Theme";
+export { ThemeContext, ThemeProvider, useTheme } from "./theme/Theme";
 export {
   QuizListProvider,
   QuizListContext,
   useQuiz,
-} from "./quiz-app/QuizContext";
+} from "./quiz-list/QuizContext";
+
+export { AuthProvider, AuthContext, useAuth } from "./auth/AuthContext";

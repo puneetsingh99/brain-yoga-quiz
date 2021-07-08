@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import React, { useState, useEffect } from "react";
 import { useLocalStorage } from "../../hooks";
 import { Theme, ThemeState } from "./theme.types";
@@ -26,4 +26,8 @@ export const ThemeProvider: React.FC = ({ children }) => {
       {children}
     </ThemeContext.Provider>
   );
+};
+
+export const useTheme = () => {
+  return useContext(ThemeContext);
 };

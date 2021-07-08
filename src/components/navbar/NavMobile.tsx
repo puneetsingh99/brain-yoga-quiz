@@ -1,4 +1,4 @@
-import { useTheme } from "../../hooks";
+import { useTheme } from "../../contexts";
 import { Sun, Moon, Home, User } from "react-feather";
 
 export const NavMobile = () => {

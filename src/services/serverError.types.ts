@@ -1,4 +1,5 @@
 export type ServerError = {
   success: false;
-  errorMessage: string;
+  message: string;
+  errorMessage?: string;
 };

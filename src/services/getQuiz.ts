@@ -26,7 +26,8 @@ export const getQuiz = async (
     console.log(error);
     return {
       success: false,
-      errorMessage: "something went wrong!",
+      message: "Could not retrieve the quiz",
+      errorMessage: "Something went wrong",
     };
   }
 };

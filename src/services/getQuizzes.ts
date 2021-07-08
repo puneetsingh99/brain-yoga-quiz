@@ -24,7 +24,7 @@ export const getQuizzes = async (): Promise<QuizList | ServerError> => {
     console.log(error);
     return {
       success: false,
-      errorMessage: "something went wrong!",
+      message: "Something went wrong",
     };
   }
 };

@@ -1,5 +1,5 @@
-import { Sun, Moon, Home, User } from "react-feather";
-import { useTheme } from "../../hooks";
+import { Sun, Moon } from "react-feather";
+import { useTheme } from "../../contexts";
 
 export const NavDesktop = () => {
   const { theme, toggleTheme } = useTheme();

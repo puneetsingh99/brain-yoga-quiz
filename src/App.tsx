@@ -1,6 +1,6 @@
 import "./index.css";
 import "./custom-styles.css";
-import { useTheme } from "./hooks";
+import { useTheme } from "./contexts";
 import { Home, QuizDetail } from "./pages";
 import { Routes, Route } from "react-router";
 import { ROUTE_HOME, ROUTE_QUIZ_DETAIL } from "./utils/routes";
