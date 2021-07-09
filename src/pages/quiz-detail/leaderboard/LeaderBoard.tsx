@@ -11,7 +11,7 @@ export const LeaderBoard = ({ topScorers }: { topScorers: TopScorer[] }) => {
             <p>Rank</p>
           </div>
           <div>
-            <p>User</p>
+            <p>Player</p>
           </div>
           <div>
             <p>Score</p>
