@@ -6,6 +6,10 @@ shadow
   box-shadow: 0px 4px #fa71cd;
 }
 
+.active-route {
+  border-bottom: solid 4px #fa71cd;
+}
+
 /**
 gradients
 */
