@@ -27,12 +27,15 @@ export type Question = {
   options: Option[];
 };
 
-export type TopScorers = {
+export type TopScorer = {
   _id: string;
-  user: string;
   rank: number;
   score: number;
   timeTaken: number;
+  user: {
+    _id: string;
+    username: string;
+  };
 };
 
 export type Quiz = {
@@ -44,8 +47,8 @@ export type Quiz = {
   negativeScore: number;
   questions: Question[];
   createdBy: string;
-  topScorers: TopScorers[];
-  createdAt: string;
+  topScorers: TopScorer[];
+  createdAt?: string;
   updatedAt?: string;
 };
 
