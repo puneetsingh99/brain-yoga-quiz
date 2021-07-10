@@ -10,6 +10,11 @@ shadow
   border-bottom: solid 4px #fa71cd;
 }
 
+.text-link {
+  color: inherit;
+  text-decoration: none;
+}
+
 .spinner {
   width: 60px;
   height: 60px;

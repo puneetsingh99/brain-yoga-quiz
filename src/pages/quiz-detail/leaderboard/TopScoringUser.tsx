@@ -36,10 +36,10 @@ export const TopScoringUser = ({ topScorer }: { topScorer: TopScorer }) => {
         </div>
       )}
       <div className="w-6/12 flex justify-start items-center text-gray-900 dark:text-gray-100">
-        <h2 className="ml-12">{username}</h2>
+        <h2 className="ml-8 sm:ml-12">{username}</h2>
       </div>
       <div className="w-3/12 text-gray-900 dark:text-gray-100">
-        <p className="ml-12">{score}</p>
+        <p className="ml-8 sm:ml-12">{score}</p>
       </div>
     </li>
   );

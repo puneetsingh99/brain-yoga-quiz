@@ -62,7 +62,7 @@ export const QuizDetail: React.FC = () => {
                       Score high and get featured on the leaderboard!
                     </li>
                   </ul>
-                  <div className="flex justify-center items-center">
+                  <div className="flex justify-center items-center py-4">
                     <button className="px-4 py-2 m-auto rounded-md gradient-bg font-semibold text-white hover:scale-105 shadow-md hover:shadow-lg transition duration-100 ease-in-out">
                       Take Quiz
                     </button>
