@@ -20,13 +20,12 @@ export const Login = () => {
     field: "",
     showPassword: false,
   });
-  const { loginUserWithCredentials, isUserLoggedIn } = useAuth();
+  const { loginUserWithCredentials, isUserLoggedIn, logout } = useAuth();
   const navigate = useNavigate();
   const location: any = useLocation();
-
   const focusInput = useRef<HTMLInputElement>(null);
   const { username, password } = loginState.credentials;
-
+  console.log(loginState);
   useEffect(() => {
     focusInput.current && focusInput.current.focus();
   }, []);
@@ -67,6 +66,7 @@ export const Login = () => {
       }
       dispatch({ type: "SET_STATUS", payload: "error" });
       dispatch({ type: "SET_ERROR", payload: response });
+      resetForm();
     } catch (error) {
       console.log("error coming from login form", error);
       dispatch({ type: "SET_STATUS", payload: "error" });
@@ -91,12 +91,18 @@ export const Login = () => {
       <Navbar />
       <main className="w-11/12 m-auto p-4 flex justify-center items-center">
         <article className="w-325 h-500 sm:w-375 sm:h-450 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-xl">
-          <div className="pb-4 flex justify-center items-center w-full ">
-            <h1 className="text-2xl tracking-wider">Login</h1>
+          <div className="flex flex-col justify-center items-center w-full ">
+            <h1 className="mb-2 text-2xl tracking-wider">Login</h1>
+            <div className="h-2">
+              <p className="text-sm text-red-500">
+                {loginState.status === "error" &&
+                  `• ${loginState.error?.message}`}
+              </p>
+            </div>
           </div>
           <form
             onSubmit={(e) => handleLogin(e)}
-            className="flex flex-col justify-between items-center"
+            className="flex flex-col justify-between items-center mt-2"
           >
             <label className="flex flex-col w-11/12 sm:8/12">
               <p className="mb-2 text-lg">Username</p>

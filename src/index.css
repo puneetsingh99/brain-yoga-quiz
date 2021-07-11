@@ -760,6 +760,10 @@ video {
   margin-top: 0.25rem;
 }
 
+.mb-12{
+  margin-bottom: 3rem;
+}
+
 .flex{
   display: -webkit-flex;
   display: flex;
@@ -787,6 +791,10 @@ video {
 
 .h-5{
   height: 1.25rem;
+}
+
+.h-2{
+  height: 0.5rem;
 }
 
 .min-h-screen{
