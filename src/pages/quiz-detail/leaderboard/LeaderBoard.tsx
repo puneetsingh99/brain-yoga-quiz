@@ -6,8 +6,8 @@ export const LeaderBoard = ({ topScorers }: { topScorers: TopScorer[] }) => {
   console.log(topScorers);
   return (
     <article className="w-325 h-500 sm:w-375 sm:h-450 text-lg text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
-      <div className="w-full flex justify-center px-4 pb-4 sm:pb-0 font-semibold">
-        <h1 className="tracking-wider text-xl mb-2">Leaderboard</h1>
+      <div className="w-full flex justify-center px-4 pb-4 sm:pb-0">
+        <h1 className="tracking-wider text-2xl mb-2">Leaderboard</h1>
       </div>
       <ul>
         <li className="flex justify-between items-center font-semibold ">

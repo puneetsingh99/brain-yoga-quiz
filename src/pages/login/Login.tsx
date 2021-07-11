@@ -31,6 +31,7 @@ export const Login = () => {
     focusInput.current && focusInput.current.focus();
   }, []);
 
+  //why login page is scrollable
   const resetForm = () => {
     dispatch({ type: "SET_USERNAME", payload: { username: "" } });
     dispatch({ type: "SET_PASSWORD", payload: { password: "" } });
@@ -91,7 +92,7 @@ export const Login = () => {
       <main className="w-11/12 m-auto p-4 flex justify-center items-center">
         <article className="w-325 h-500 sm:w-375 sm:h-450 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-xl">
           <div className="pb-8 flex justify-center items-center w-full ">
-            <h1 className="text-xl sm:text-3xl font-semibold">Login</h1>
+            <h1 className="text-2xl tracking-wider">Login</h1>
           </div>
           <form
             onSubmit={(e) => handleLogin(e)}
@@ -108,7 +109,7 @@ export const Login = () => {
                     payload: { username: e.target.value },
                   })
                 }
-                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:outline-none border border-gray-700
+                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:outline-none focus:ring-opacity-50 border border-gray-700
                  ${invalidUsername && "ring-4 ring-red-500"}
                 `}
                 autoComplete="username"
@@ -129,7 +130,7 @@ export const Login = () => {
                     payload: { password: e.target.value },
                   })
                 }
-                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 border border-gray-700 focus:outline-none ${
+                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:ring-opacity-50 focus:outline-none border border-gray-700 ${
                   invalidPassword && "ring-4 ring-red-500"
                 }`}
                 autoComplete="current-password"
@@ -150,9 +151,11 @@ export const Login = () => {
                   <AiFillEyeInvisible size={20} />
                 )}
               </i>
-              <p className={`text-red-500 text-sm mb-2`}>{` ${
-                invalidPassword ? `• ${loginValidation.errorMessage}` : ""
-              } `}</p>
+              <div className="h-5">
+                <p className={`text-red-500 text-sm `}>{` ${
+                  invalidPassword ? `• ${loginValidation.errorMessage}` : ""
+                } `}</p>
+              </div>
             </label>
             <input
               type="submit"
@@ -160,7 +163,7 @@ export const Login = () => {
                 loginState.status === "logging in" ? "Logging in..." : "Login"
               }`}
               disabled={loginState.status === "logging in" ? true : false}
-              className={`text-white mt-2 px-4 py-3 m-auto w-11/12 rounded-md gradient-bg cursor-pointer mb-4 focus:ring-4 focus:outline-none focus:ring-opacity-50`}
+              className={`text-white mt-3 px-4 py-3 m-auto w-11/12 rounded-md gradient-bg cursor-pointer mb-4 focus:ring-4 focus:outline-none focus:ring-opacity-50`}
             />
             <p className="text-lg">
               Don't have an account?
