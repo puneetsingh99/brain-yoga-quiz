@@ -91,7 +91,7 @@ export const Login = () => {
       <Navbar />
       <main className="w-11/12 m-auto p-4 flex justify-center items-center">
         <article className="w-325 h-500 sm:w-375 sm:h-450 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-xl">
-          <div className="pb-8 flex justify-center items-center w-full ">
+          <div className="pb-4 flex justify-center items-center w-full ">
             <h1 className="text-2xl tracking-wider">Login</h1>
           </div>
           <form
