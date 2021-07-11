@@ -109,7 +109,7 @@ export const Login = () => {
                     payload: { username: e.target.value },
                   })
                 }
-                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:outline-none ring-opacity-60 border border-gray-700
+                className={`dark:bg-gray-700 mb-4 px-4 py-3 rounded-md focus:ring-4 focus:outline-none ring-opacity-60 border border-gray-700
                  ${invalidUsername && "ring-4 ring-red-500"}
                 `}
                 autoComplete="username"
