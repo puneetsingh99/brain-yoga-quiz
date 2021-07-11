@@ -29,7 +29,7 @@ export const Login = () => {
 
   useEffect(() => {
     focusInput.current && focusInput.current.focus();
-  });
+  }, []);
 
   const resetForm = () => {
     dispatch({ type: "SET_USERNAME", payload: { username: "" } });
@@ -90,8 +90,8 @@ export const Login = () => {
       <Navbar />
       <main className="w-11/12 m-auto p-4 flex justify-center items-center">
         <article className="w-325 h-500 sm:w-375 sm:h-450 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-xl">
-          <div className="pb-4 flex justify-center items-center w-full ">
-            <h1 className="text-3xl font-semibold">Login</h1>
+          <div className="pb-8 flex justify-center items-center w-full ">
+            <h1 className="text-xl sm:text-3xl font-semibold">Login</h1>
           </div>
           <form
             onSubmit={(e) => handleLogin(e)}
@@ -108,7 +108,7 @@ export const Login = () => {
                     payload: { username: e.target.value },
                   })
                 }
-                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:outline-none
+                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:outline-none border border-gray-700
                  ${invalidUsername && "ring-4 ring-red-500"}
                 `}
                 autoComplete="username"
@@ -129,7 +129,7 @@ export const Login = () => {
                     payload: { password: e.target.value },
                   })
                 }
-                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:outline-none ${
+                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 border border-gray-700 focus:outline-none ${
                   invalidPassword && "ring-4 ring-red-500"
                 }`}
                 autoComplete="current-password"
