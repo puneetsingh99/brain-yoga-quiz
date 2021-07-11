@@ -20,7 +20,7 @@ export const Login = () => {
     field: "",
     showPassword: false,
   });
-  const { loginUserWithCredentials, isUserLoggedIn, logout } = useAuth();
+  const { loginUserWithCredentials, isUserLoggedIn } = useAuth();
   const navigate = useNavigate();
   const location: any = useLocation();
 
@@ -109,7 +109,7 @@ export const Login = () => {
                     payload: { username: e.target.value },
                   })
                 }
-                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:outline-none focus:ring-opacity-50 border border-gray-700
+                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:outline-none ring-opacity-25 border border-gray-700
                  ${invalidUsername && "ring-4 ring-red-500"}
                 `}
                 autoComplete="username"
@@ -130,7 +130,7 @@ export const Login = () => {
                     payload: { password: e.target.value },
                   })
                 }
-                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 focus:ring-opacity-50 focus:outline-none border border-gray-700 ${
+                className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-md focus:ring-4 ring-opacity-25 focus:outline-none border border-gray-700 ${
                   invalidPassword && "ring-4 ring-red-500"
                 }`}
                 autoComplete="current-password"

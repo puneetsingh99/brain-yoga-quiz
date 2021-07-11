@@ -1113,6 +1113,14 @@ video {
   --tw-ring-color: rgba(239, 68, 68, var(--tw-ring-opacity));
 }
 
+.ring-opacity-25{
+  --tw-ring-opacity: 0.25;
+}
+
+.ring-opacity-20{
+  --tw-ring-opacity: 0.2;
+}
+
 .transition{
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
