@@ -1121,6 +1121,10 @@ video {
   --tw-ring-opacity: 0.2;
 }
 
+.ring-opacity-60{
+  --tw-ring-opacity: 0.6;
+}
+
 .transition{
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, -webkit-transform, -webkit-filter, -webkit-backdrop-filter;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
