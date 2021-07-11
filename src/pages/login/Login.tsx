@@ -163,12 +163,12 @@ export const Login = () => {
                 loginState.status === "logging in" ? "Logging in..." : "Login"
               }`}
               disabled={loginState.status === "logging in" ? true : false}
-              className={`text-white mt-3 px-4 py-3 m-auto w-11/12 rounded-md gradient-bg cursor-pointer mb-4 focus:ring-4 focus:outline-none focus:ring-opacity-50`}
+              className={`text-white mt-1 px-4 py-3 m-auto w-11/12 rounded-md gradient-bg cursor-pointer mb-4 focus:ring-4 focus:outline-none focus:ring-opacity-50`}
             />
             <p className="text-lg">
               Don't have an account?
               <Link to={ROUTE_SIGN_UP}>
-                <span className="hover:underline cursor-pointer font-semibold ml-2 focus:ring-4 focus:outline-none">
+                <span className="underline cursor-pointer font-semibold ml-2 focus:ring-4 focus:outline-none">
                   Signup
                 </span>
               </Link>

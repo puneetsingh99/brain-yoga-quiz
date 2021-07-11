@@ -756,6 +756,10 @@ video {
   margin-top: 0.75rem;
 }
 
+.mt-1{
+  margin-top: 0.25rem;
+}
+
 .flex{
   display: -webkit-flex;
   display: flex;
@@ -1082,6 +1086,10 @@ video {
 .text-red-500{
   --tw-text-opacity: 1;
   color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.underline{
+  text-decoration: underline;
 }
 
 .shadow-sm{
