@@ -2,9 +2,10 @@ import { AiOutlineTrophy } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
 import { useState } from "react";
 import { Navbar, Loader, NavMobile } from "../../components";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuiz } from "./hooks/useQuiz";
 import { LeaderBoard } from "./leaderboard/LeaderBoard";
+import { ROUTE_TAKE_QUIZ } from "../../utils/routes";
 
 export const QuizDetail: React.FC = () => {
   const { id } = useParams();
@@ -55,7 +56,7 @@ export const QuizDetail: React.FC = () => {
                     </li>
                     <li className="list-disc ml-8 mb-2">
                       {quiz.negativeScore === 0
-                        ? `No negative points for incorrect questions.`
+                        ? `No negative points.`
                         : `${quiz.negativeScore} points for an incorrect answer.`}
                     </li>
                     <li className="list-disc ml-8">
@@ -63,15 +64,17 @@ export const QuizDetail: React.FC = () => {
                     </li>
                   </ul>
                   <div className="flex justify-center items-center sm:py-4">
-                    <button className="px-4 py-2 m-auto rounded-md gradient-bg font-semibold text-white hover:scale-105 shadow-md hover:shadow-lg transition duration-100 ease-in-out">
-                      Take Quiz
-                    </button>
+                    <Link to={ROUTE_TAKE_QUIZ}>
+                      <button className="px-4 py-2 m-auto rounded-md gradient-bg font-semibold text-white hover:scale-105 shadow-md hover:shadow-lg transition duration-100 ease-in-out">
+                        Take Quiz
+                      </button>
+                    </Link>
                   </div>
                 </article>
               )}
             </div>
           )}
-          {status === "error" && <p>{error?.errorMessage}</p>}
+          {status === "error" && error && <p>{error.message}</p>}
         </section>
       </main>
       <NavMobile />

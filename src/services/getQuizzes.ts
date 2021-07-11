@@ -12,6 +12,7 @@ export type QuizList = {
 export const getQuizzes = async (): Promise<QuizList | ServerError> => {
   try {
     const response = await axios.get<QuizList>(API_QUIZZES);
+    console.log(response.data);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {

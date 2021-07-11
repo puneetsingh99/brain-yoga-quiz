@@ -21,7 +21,7 @@ export const QuizList: React.FC = () => {
           })}
         </ul>
       )}
-      {status === "error" && <p>{error}</p>}
+      {status === "error" && error && <p>{error.message}</p>}
     </section>
   );
 };
