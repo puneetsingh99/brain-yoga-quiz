@@ -50,9 +50,8 @@ export const QuizDetail: React.FC = () => {
                   <ul className="mb-4">
                     <li className="list-disc ml-8 mb-2">{`Submit quiz before the timer expires.`}</li>
                     <li className="list-disc ml-8 mb-2">
-                      {`Every correct answer fetches `}
                       <span className="font-semibold mb-2">{quiz.score}</span>
-                      {` points.`}
+                      {` points for a correct ans`}
                     </li>
                     <li className="list-disc ml-8 mb-2">
                       {quiz.negativeScore === 0
