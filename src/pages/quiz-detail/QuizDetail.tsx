@@ -21,7 +21,7 @@ export const QuizDetail: React.FC = () => {
         <section className="w-full p-2 flex sm:flex-row flex-col justify-center items-center">
           {status === "loading" && <Loader />}
           {status === "success" && quiz && (
-            <div className="w-full">
+            <div className="w-full sm:w-375">
               <nav className="flex justify-between items-center my-2">
                 <div
                   className={`w-full py-4 flex justify-center items-center cursor-pointer hover:bg-white dark:hover:bg-gray-800 rounded-xl ${

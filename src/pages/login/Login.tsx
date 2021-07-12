@@ -1,96 +1,28 @@
 import { Navbar, NavMobile } from "../../components";
-import { useReducer, useState, useRef, useEffect } from "react";
-import { useAuth } from "../../contexts";
-import { LoginState, LoginValidation } from "./login.types";
-import { loginReducer } from "./loginReducer";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ROUTE_SIGN_UP } from "../../utils/routes";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { BiErrorCircle } from "react-icons/bi";
-
-const initialState: LoginState = {
-  status: "idle",
-  credentials: { username: "", password: "" },
-  error: null,
-};
+import { useLogin } from "./useLogin";
 
 export const Login = () => {
-  const [loginState, dispatch] = useReducer(loginReducer, initialState);
-  const [loginValidation, setLoginValidation] = useState<LoginValidation>({
-    status: "valid",
-    field: "",
-    showPassword: false,
-  });
-  const { loginUserWithCredentials, isUserLoggedIn, logout } = useAuth();
-  const navigate = useNavigate();
-  const location: any = useLocation();
+  const {
+    loginValidation,
+    setLoginValidation,
+    loginDispatch,
+    handleLogin,
+    invalidPassword,
+    invalidUsername,
+    loginState,
+    username,
+    password,
+  } = useLogin();
+
   const focusInput = useRef<HTMLInputElement>(null);
-  const { username, password } = loginState.credentials;
-  console.log(loginState);
+
   useEffect(() => {
     focusInput.current && focusInput.current.focus();
   }, []);
-
-  //why login page is scrollable
-  const resetForm = () => {
-    dispatch({ type: "SET_USERNAME", payload: { username: "" } });
-    dispatch({ type: "SET_PASSWORD", payload: { password: "" } });
-    setLoginValidation({
-      status: "valid",
-      field: "",
-      showPassword: false,
-    });
-  };
-
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (username.length === 0) {
-      return setLoginValidation((currState) => ({
-        ...currState,
-        status: "invalid",
-        field: "username",
-        errorMessage: "username cannot be empty",
-      }));
-    }
-    if (password.length === 0) {
-      return setLoginValidation((currState) => ({
-        ...currState,
-        status: "invalid",
-        field: "password",
-        errorMessage: "password cannot be empty",
-      }));
-    }
-    try {
-      dispatch({ type: "SET_STATUS", payload: "logging in" });
-      const response = await loginUserWithCredentials(username, password);
-      if (response.success) {
-        dispatch({ type: "SET_STATUS", payload: "login successful" });
-        resetForm();
-        navigate(location.state?.from ? location.state.from : "/");
-        //dispatch of User context goes here and user details are set
-        return;
-      }
-      dispatch({ type: "SET_STATUS", payload: "error" });
-      dispatch({ type: "SET_ERROR", payload: response });
-      resetForm();
-    } catch (error) {
-      console.log("error coming from login form", error);
-      dispatch({ type: "SET_STATUS", payload: "error" });
-      dispatch({
-        type: "SET_ERROR",
-        payload: { success: false, message: "Something went wrong" },
-      });
-      resetForm();
-    }
-  };
-
-  const invalidUsername =
-    loginValidation.status === "invalid" &&
-    loginValidation.field === "username";
-
-  const invalidPassword =
-    loginValidation.status === "invalid" &&
-    loginValidation.field === "password";
 
   return (
     <>
@@ -116,7 +48,7 @@ export const Login = () => {
                 type="text"
                 value={username}
                 onChange={(e) =>
-                  dispatch({
+                  loginDispatch({
                     type: "SET_USERNAME",
                     payload: { username: e.target.value },
                   })
@@ -137,7 +69,7 @@ export const Login = () => {
                 type={`${loginValidation.showPassword ? "text" : "password"}`}
                 value={password}
                 onChange={(e) =>
-                  dispatch({
+                  loginDispatch({
                     type: "SET_PASSWORD",
                     payload: { password: e.target.value },
                   })
