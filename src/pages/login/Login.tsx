@@ -95,8 +95,8 @@ export const Login = () => {
   return (
     <>
       <Navbar />
-      <main className="w-11/12 m-auto p-4 flex justify-center items-center">
-        <article className="w-325 h-500 sm:w-375 sm:h-450 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
+      <main className="w-full sm:w-11/12 m-auto py-4 px-2 flex justify-center items-center">
+        <article className="w-full h-500 sm:w-375 sm:h-450 m-auto py-4 px-2 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
           <div className="flex flex-col justify-center items-center w-full ">
             <h1 className="mb-2 text-2xl tracking-wider">Login</h1>
             <div className="h-2">

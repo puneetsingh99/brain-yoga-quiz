@@ -21,6 +21,10 @@ shadow
   top: 45%;
 }
 
+.w-95 {
+  width: 95%;
+}
+
 .spinner {
   width: 60px;
   height: 60px;

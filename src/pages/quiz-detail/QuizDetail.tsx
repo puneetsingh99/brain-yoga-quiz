@@ -17,11 +17,11 @@ export const QuizDetail: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main className="w-11/12 m-auto">
-        <section className="flex sm:flex-row flex-col justify-center items-center">
+      <main className="w-full sm:w-11/12 m-auto">
+        <section className="w-full px-2 py-4 flex sm:flex-row flex-col justify-center items-center">
           {status === "loading" && <Loader />}
           {status === "success" && quiz && (
-            <div>
+            <div className="w-full">
               <nav className="flex justify-between items-center my-4">
                 <div
                   className={`w-full py-4 flex justify-center items-center cursor-pointer hover:bg-white dark:hover:bg-gray-800 rounded-xl ${
@@ -42,7 +42,7 @@ export const QuizDetail: React.FC = () => {
               </nav>
               {showLeaderBoard && <LeaderBoard topScorers={quiz.topScorers} />}
               {!showLeaderBoard && (
-                <article className="w-325 h-500 sm:w-375 sm:h-450 text-lg bg-white dark:bg-gray-800 p-4 rounded-3xl shadow-md">
+                <article className="w-full h-500 sm:w-375 sm:h-450 text-lg bg-white dark:bg-gray-800 p-4 rounded-3xl shadow-md">
                   <h2 className="text-2xl mb-4 m-auto">{`${quiz.name}`}</h2>
                   <p>{`No of questions: ${quiz.questions.length}`}</p>
                   <p>{`Duration: ${quiz.timelimit} minutes`}</p>
