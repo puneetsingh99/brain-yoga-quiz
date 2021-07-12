@@ -43,7 +43,10 @@ export const QuizDetail: React.FC = () => {
               {showLeaderBoard && <LeaderBoard topScorers={quiz.topScorers} />}
               {!showLeaderBoard && (
                 <article className="w-full h-500 sm:w-375 sm:h-450 text-lg bg-white dark:bg-gray-800 p-4 rounded-3xl shadow-md">
-                  <h2 className="text-2xl mb-4 m-auto">{`${quiz.name}`}</h2>
+                  <div className="w-full flex justify-center px-4 pb-4 sm:pb-0">
+                    <h2 className="text-2xl mb-4 m-auto">{`${quiz.name}`}</h2>
+                  </div>
+
                   <p>{`No of questions: ${quiz.questions.length}`}</p>
                   <p>{`Duration: ${quiz.timelimit} minutes`}</p>
                   <p className="mt-4 mb-2">Rules:</p>

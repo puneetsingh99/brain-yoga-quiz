@@ -5,7 +5,7 @@ import throne from "../../../assets/throne.png";
 export const LeaderBoard = ({ topScorers }: { topScorers: TopScorer[] }) => {
   console.log(topScorers);
   return (
-    <article className="w-full border  h-500 sm:w-375 sm:h-450 text-lg text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 p-4 rounded-3xl shadow-md">
+    <article className="w-full h-500 sm:w-375 sm:h-450 text-lg text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 p-4 rounded-3xl shadow-md">
       <div className="w-full flex justify-center px-4 pb-4 sm:pb-0">
         <h1 className="tracking-wider text-2xl mb-2">Leaderboard</h1>
       </div>
