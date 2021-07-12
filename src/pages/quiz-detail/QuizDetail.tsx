@@ -42,7 +42,7 @@ export const QuizDetail: React.FC = () => {
               </nav>
               {showLeaderBoard && <LeaderBoard topScorers={quiz.topScorers} />}
               {!showLeaderBoard && (
-                <article className="w-325 h-500 sm:w-375 sm:h-450 text-lg bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
+                <article className="w-325 h-500 sm:w-375 sm:h-450 text-lg bg-white dark:bg-gray-800 p-4 rounded-3xl shadow-md">
                   <h2 className="text-2xl mb-4 m-auto">{`${quiz.name}`}</h2>
                   <p>{`No of questions: ${quiz.questions.length}`}</p>
                   <p>{`Duration: ${quiz.timelimit} minutes`}</p>
@@ -71,7 +71,7 @@ export const QuizDetail: React.FC = () => {
                   </ul>
                   <div className="flex justify-center items-center sm:py-4">
                     <Link to={ROUTE_TAKE_QUIZ}>
-                      <button className="px-4 py-2 m-auto rounded-md gradient-bg font-semibold text-white hover:scale-105 shadow-md hover:shadow-lg transition duration-100 ease-in-out">
+                      <button className="px-4 py-2 m-auto rounded-lg gradient-bg font-semibold text-white hover:scale-105 shadow-md hover:shadow-lg transition duration-100 ease-in-out">
                         Take Quiz
                       </button>
                     </Link>
