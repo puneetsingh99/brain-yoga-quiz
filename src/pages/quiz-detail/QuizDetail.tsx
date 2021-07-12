@@ -18,11 +18,11 @@ export const QuizDetail: React.FC = () => {
     <>
       <Navbar />
       <main className="w-full sm:w-11/12 m-auto">
-        <section className="w-full px-2 py-4 flex sm:flex-row flex-col justify-center items-center">
+        <section className="w-full p-2 flex sm:flex-row flex-col justify-center items-center">
           {status === "loading" && <Loader />}
           {status === "success" && quiz && (
             <div className="w-full">
-              <nav className="flex justify-between items-center my-4">
+              <nav className="flex justify-between items-center my-2">
                 <div
                   className={`w-full py-4 flex justify-center items-center cursor-pointer hover:bg-white dark:hover:bg-gray-800 rounded-xl ${
                     !showLeaderBoard && `active dark:bg-gray-800 bg-white`
@@ -71,7 +71,7 @@ export const QuizDetail: React.FC = () => {
                   </ul>
                   <div className="flex justify-center items-center sm:py-4">
                     <Link to={ROUTE_TAKE_QUIZ}>
-                      <button className="px-4 py-2 m-auto rounded-lg gradient-bg font-semibold text-white hover:scale-105 shadow-md hover:shadow-lg transition duration-100 ease-in-out">
+                      <button className="px-8 py-2 m-auto rounded-lg gradient-bg font-semibold text-white hover:scale-105 shadow-md hover:shadow-lg transition duration-100 ease-in-out">
                         Take Quiz
                       </button>
                     </Link>
