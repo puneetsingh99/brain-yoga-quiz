@@ -100,7 +100,7 @@ export const Signup = () => {
                   })
                 }
                 className={`dark:bg-gray-700 mb-2 px-4 py-3 rounded-lg focus:ring-4 focus:outline-none ring-opacity-60 border border-gray-700
-                 ${invalidUsername && "ring-4 ring-red-500"}
+                 ${invalidPassword && "ring-4 ring-red-500"}
                 `}
                 autoComplete="current-password"
               />
@@ -120,12 +120,20 @@ export const Signup = () => {
                   <AiFillEyeInvisible size={20} />
                 )}
               </i>
-              <p className={`text-red-500 text-sm font-semibold`}>{` ${
+              <p
+                className={`text-red-500 text-sm font-semibold ${
+                  invalidPassword && `h-1`
+                }`}
+              >{` ${
                 invalidPassword ? `• ${signupValidation.errorMessage}` : ""
               } `}</p>
             </label>
 
-            <label className="flex flex-col w-11/12 sm:8/12 relative">
+            <label
+              className={`flex flex-col w-11/12 sm:8/12 relative ${
+                invalidPassword && `mt-3`
+              }`}
+            >
               <p className="mb-2 text-lg">Confirm Password</p>
               <input
                 type={`${
@@ -170,7 +178,9 @@ export const Signup = () => {
             <input
               type="submit"
               value={`${
-                signupState.status === "signing in" ? "Signing in..." : "Signup"
+                signupState.status === "signing in"
+                  ? "Signing in..."
+                  : "Sign up"
               }`}
               disabled={signupState.status === "signing in" ? true : false}
               className={`text-white mt-1 px-4 py-3 m-auto w-11/12 rounded-lg gradient-bg cursor-pointer mb-4 focus:ring-4 focus:outline-none focus:ring-opacity-50 font-semibold`}
@@ -179,7 +189,7 @@ export const Signup = () => {
               Already have an account?
               <Link to={ROUTE_LOGIN}>
                 <span className="cursor-pointer font-semibold ml-2 focus:ring-4 focus:outline-none">
-                  Login
+                  Log in
                 </span>
               </Link>
             </p>

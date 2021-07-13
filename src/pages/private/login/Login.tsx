@@ -104,7 +104,7 @@ export const Login = () => {
             <input
               type="submit"
               value={`${
-                loginState.status === "logging in" ? "Logging in..." : "Login"
+                loginState.status === "logging in" ? "Logging in..." : "Log in"
               }`}
               disabled={loginState.status === "logging in" ? true : false}
               className={`text-white mt-1 px-4 py-3 m-auto w-11/12 rounded-lg gradient-bg cursor-pointer mb-4 focus:ring-4 focus:outline-none focus:ring-opacity-50 font-semibold`}

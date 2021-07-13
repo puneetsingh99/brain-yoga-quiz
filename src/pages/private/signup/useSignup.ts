@@ -3,6 +3,7 @@ import { SignupState, SignupValidation } from "./signup.types";
 import { signupReducer } from "./signupReducer";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../../contexts";
+import { validatePassword } from "./validatePassword";
 
 const initialSignupState: SignupState = {
   status: "idle",
@@ -83,30 +84,21 @@ export const useSignup = () => {
       }));
     }
 
-    if (password.length === 0) {
-      return setSignupValidation((currState) => ({
-        ...currState,
-        status: "invalid",
-        field: "password",
-        errorMessage: "password cannot be empty",
-      }));
-    }
-
-    if (confirmPassword.length === 0) {
-      return setSignupValidation((currState) => ({
-        ...currState,
-        status: "invalid",
-        field: "confirmPassword",
-        errorMessage: "confirm password cannot be empty",
-      }));
-    }
-
     if (username.length > 12) {
       return setSignupValidation((currState) => ({
         ...currState,
         status: "invalid",
         field: "username",
         errorMessage: "max length: 12 characters",
+      }));
+    }
+
+    if (password.length === 0) {
+      return setSignupValidation((currState) => ({
+        ...currState,
+        status: "invalid",
+        field: "password",
+        errorMessage: "password cannot be empty",
       }));
     }
 
@@ -118,20 +110,18 @@ export const useSignup = () => {
         errorMessage: "must be atleast 6 characters long.",
       }));
     }
-
     return "pass";
   };
 
   const passwordValidation = () => {
-    if (password)
-      if (password !== confirmPassword) {
-        return setSignupValidation((currState) => ({
-          ...currState,
-          status: "invalid",
-          field: "confirmPassword",
-          errorMessage: "passwords do not match",
-        }));
-      }
+    if (password !== confirmPassword) {
+      return setSignupValidation((currState) => ({
+        ...currState,
+        status: "invalid",
+        field: "confirmPassword",
+        errorMessage: "passwords do not match",
+      }));
+    }
     return "pass";
   };
 
@@ -140,6 +130,25 @@ export const useSignup = () => {
 
     if (lengthValidation() !== "pass") {
       return;
+    }
+
+    const passwordCheck = validatePassword(password);
+    if (passwordCheck !== "pass") {
+      return setSignupValidation((currState) => ({
+        ...currState,
+        status: "invalid",
+        field: "password",
+        errorMessage: passwordCheck,
+      }));
+    }
+
+    if (confirmPassword.length === 0) {
+      return setSignupValidation((currState) => ({
+        ...currState,
+        status: "invalid",
+        field: "confirmPassword",
+        errorMessage: "confirm password cannot be empty",
+      }));
     }
 
     if (passwordValidation() !== "pass") {
