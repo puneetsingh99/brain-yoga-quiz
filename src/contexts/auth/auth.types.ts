@@ -17,10 +17,24 @@ export type LoginUser = {
   quizzesTaken: QuizTaken[];
 };
 
+export type SignupUser = {
+  userId: string;
+  name: string;
+  username: string;
+  token: string;
+  quizzesTaken: QuizTaken[];
+};
+
 export type LoginResponse = {
   success: true;
   message: "Login successful";
   user: LoginUser;
+};
+
+export type SignupResponse = {
+  success: true;
+  message: "User added successfully";
+  user: SignupUser;
 };
 
 export type AuthProviderContext = {
@@ -31,6 +45,11 @@ export type AuthProviderContext = {
   ) => Promise<LoginResponse | ServerError>;
   logout: () => void;
   token: string;
+  signupUser: (
+    name: string,
+    username: string,
+    password: string
+  ) => Promise<SignupResponse | ServerError>;
 };
 
 export type LocalStorageLogin = {

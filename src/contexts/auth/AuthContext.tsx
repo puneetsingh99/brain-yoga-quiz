@@ -7,8 +7,10 @@ import {
   LoginUser,
   AuthProviderContext,
   LocalStorageLogin,
+  SignupResponse,
+  SignupUser,
 } from "./auth.types";
-import { API_LOGIN } from "../../utils/urls";
+import { API_LOGIN, API_USERS } from "../../utils/urls";
 import { useLocalStorage } from "../../hooks";
 
 export const AuthContext = createContext<AuthProviderContext>(
@@ -29,6 +31,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string>(() => storedLoginStatus.token);
 
   setupAuthHeaders(token);
+
+  function loginUser(user: LoginUser | SignupUser) {
+    const { token } = user;
+    setLogin(true);
+    setToken(token);
+    setStoredLoginStatus({ isUserLoggedIn: true, token });
+  }
+
+  function logout(): void {
+    localStorage.removeItem("brainYogaLogin");
+    setLogin(false);
+    setToken("noToken");
+  }
 
   const loginUserWithCredentials = async (
     username: string,
@@ -58,24 +73,49 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         errorMessage: "Something went wrong",
       };
     }
+  };
 
-    function loginUser(user: LoginUser) {
-      const { token } = user;
-      setLogin(true);
-      setToken(token);
-      setStoredLoginStatus({ isUserLoggedIn: true, token });
+  const signupUser = async (
+    name: string,
+    username: string,
+    password: string
+  ): Promise<SignupResponse | ServerError> => {
+    try {
+      const response = await axios.post<SignupResponse>(API_USERS, {
+        name,
+        username,
+        password,
+      });
+
+      if (response.data.success) {
+        loginUser(response?.data.user);
+      }
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const serverError = error as AxiosError<ServerError>;
+        if (serverError && serverError.response) {
+          return serverError.response.data;
+        }
+      }
+      console.log(error);
+      return {
+        success: false,
+        message: "Could not Signup",
+        errorMessage: "Something went wrong",
+      };
     }
   };
 
-  function logout(): void {
-    localStorage.removeItem("brainYogaLogin");
-    setLogin(false);
-    setToken("noToken");
-  }
-
   return (
     <AuthContext.Provider
-      value={{ isUserLoggedIn, loginUserWithCredentials, logout, token }}
+      value={{
+        isUserLoggedIn,
+        loginUserWithCredentials,
+        logout,
+        token,
+        signupUser,
+      }}
     >
       {children}
     </AuthContext.Provider>

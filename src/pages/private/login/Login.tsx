@@ -1,7 +1,7 @@
-import { Navbar, NavMobile } from "../../components";
+import { Navbar, NavMobile } from "../../../components";
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ROUTE_SIGN_UP } from "../../utils/routes";
+import { ROUTE_SIGN_UP } from "../../../utils/routes";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useLogin } from "./useLogin";
 
@@ -113,7 +113,7 @@ export const Login = () => {
               Don't have an account?
               <Link to={ROUTE_SIGN_UP}>
                 <span className="cursor-pointer font-semibold ml-2 focus:ring-4 focus:outline-none">
-                  Signup
+                  Sign up
                 </span>
               </Link>
             </p>

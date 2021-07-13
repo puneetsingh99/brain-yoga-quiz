@@ -2,7 +2,7 @@ import { useReducer, useState } from "react";
 import { LoginState, LoginValidation } from "./login.types";
 import { loginReducer } from "./loginReducer";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../../contexts";
+import { useAuth } from "../../../contexts";
 
 const initialLoginState: LoginState = {
   status: "idle",
