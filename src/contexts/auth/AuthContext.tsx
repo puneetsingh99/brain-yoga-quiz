@@ -17,35 +17,43 @@ export const AuthContext = createContext<AuthProviderContext>(
   {} as AuthProviderContext
 );
 
+type TokenAndUserId = {
+  token: "no token" | string;
+  userId: "no user" | string;
+};
+
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [storedLoginStatus, setStoredLoginStatus] =
     useLocalStorage<LocalStorageLogin>("brainYogaLogin", {
       isUserLoggedIn: false,
-      token: "noToken",
-      userId: "",
+      token: "no token",
+      userId: "no user",
     });
 
   const [isUserLoggedIn, setLogin] = useState<boolean>(
     () => storedLoginStatus.isUserLoggedIn
   );
 
-  const [token, setToken] = useState<string>(() => storedLoginStatus.token);
-  const [userId, setUserId] = useState<string>(() => storedLoginStatus.userId);
+  const [tokenAndUserId, setTokenAndUserId] = useState<TokenAndUserId>(() => ({
+    token: storedLoginStatus.token,
+    userId: storedLoginStatus.userId,
+  }));
+
+  const { token, userId } = tokenAndUserId;
 
   setupAuthHeaders(token);
 
   function loginUser(user: LoginUser | SignupUser) {
     const { token, userId } = user;
     setLogin(true);
-    setToken(token);
-    setUserId(userId);
+    setTokenAndUserId(() => ({ token, userId }));
     setStoredLoginStatus({ isUserLoggedIn: true, token, userId });
   }
 
   function logout(): void {
     localStorage.removeItem("brainYogaLogin");
     setLogin(false);
-    setToken("noToken");
+    setTokenAndUserId(() => ({ token: "no token", userId: "no user" }));
   }
 
   const loginUserWithCredentials = async (

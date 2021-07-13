@@ -56,5 +56,5 @@ export type AuthProviderContext = {
 export type LocalStorageLogin = {
   isUserLoggedIn: boolean;
   token: string | "no token";
-  userId: string;
+  userId: string | "no user";
 };
