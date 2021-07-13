@@ -1,9 +1,10 @@
 import "./index.css";
 import "./custom-styles.css";
 import { useTheme } from "./contexts";
-import { Home, QuizDetail, Login, TakeQuiz, Signup } from "./pages";
+import { Home, QuizDetail, Login, TakeQuiz, Signup, Account } from "./pages";
 import { Routes, Route } from "react-router";
 import {
+  ROUTE_ACCOUNT,
   ROUTE_HOME,
   ROUTE_LOGIN,
   ROUTE_QUIZ_DETAIL,
@@ -24,6 +25,7 @@ const App = () => {
           <Route path={ROUTE_LOGIN} element={<Login />} />
           <Route path={ROUTE_SIGN_UP} element={<Signup />} />
           <PrivateRoute path={ROUTE_TAKE_QUIZ} element={<TakeQuiz />} />
+          <PrivateRoute path={ROUTE_ACCOUNT} element={<Account />} />
         </Routes>
       </main>
     </div>

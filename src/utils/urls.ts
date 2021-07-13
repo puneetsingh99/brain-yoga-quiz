@@ -9,3 +9,4 @@ export const API_USER = `${API_USERS}/user/${ID_PARAM}`;
 export const API_LOGIN = `${ROOT_PATH}/login`;
 
 export const getQuizApi = (id: string): string => `${ROOT_PATH}/quiz/${id}`;
+export const getUserApi = (id: string): string => `${ROOT_PATH}/user/${id}`;

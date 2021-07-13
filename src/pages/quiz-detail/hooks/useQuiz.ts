@@ -26,10 +26,10 @@ const quizReducer = (state: QuizType, action: ACTIONTYPE): QuizType => {
       return { ...state, status: action.payload };
 
     case "SET_QUIZ":
-      return { ...state, quiz: action.payload };
+      return { ...state, status: "success", quiz: action.payload };
 
     case "SET_ERROR":
-      return { ...state, error: action.payload };
+      return { ...state, status: "error", error: action.payload };
 
     default:
       return state;
@@ -44,11 +44,8 @@ export const useQuiz = (id: string) => {
       const response = await getQuiz(id);
 
       if ("quiz" in response) {
-        dispatch({ type: "SET_STATUS", payload: "success" });
         return dispatch({ type: "SET_QUIZ", payload: response.quiz });
       }
-
-      dispatch({ type: "SET_STATUS", payload: "error" });
       return dispatch({ type: "SET_ERROR", payload: response });
     })();
   }, [id]);
