@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     useLocalStorage<LocalStorageLogin>("brainYogaLogin", {
       isUserLoggedIn: false,
       token: "noToken",
+      userId: "",
     });
 
   const [isUserLoggedIn, setLogin] = useState<boolean>(
@@ -29,14 +30,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   const [token, setToken] = useState<string>(() => storedLoginStatus.token);
+  const [userId, setUserId] = useState<string>(() => storedLoginStatus.userId);
 
   setupAuthHeaders(token);
 
   function loginUser(user: LoginUser | SignupUser) {
-    const { token } = user;
+    const { token, userId } = user;
     setLogin(true);
     setToken(token);
-    setStoredLoginStatus({ isUserLoggedIn: true, token });
+    setUserId(userId);
+    setStoredLoginStatus({ isUserLoggedIn: true, token, userId });
   }
 
   function logout(): void {
@@ -114,6 +117,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         loginUserWithCredentials,
         logout,
         token,
+        userId,
         signupUser,
       }}
     >

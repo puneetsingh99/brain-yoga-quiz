@@ -45,6 +45,7 @@ export type AuthProviderContext = {
   ) => Promise<LoginResponse | ServerError>;
   logout: () => void;
   token: string;
+  userId: string;
   signupUser: (
     name: string,
     username: string,
@@ -55,4 +56,5 @@ export type AuthProviderContext = {
 export type LocalStorageLogin = {
   isUserLoggedIn: boolean;
   token: string | "no token";
+  userId: string;
 };
