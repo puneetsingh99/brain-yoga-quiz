@@ -931,6 +931,18 @@ video {
   background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
 }
 
+.bg-opacity-75{
+  --tw-bg-opacity: 0.75;
+}
+
+.bg-opacity-90{
+  --tw-bg-opacity: 0.9;
+}
+
+.bg-opacity-95{
+  --tw-bg-opacity: 0.95;
+}
+
 .p-4{
   padding: 1rem;
 }
