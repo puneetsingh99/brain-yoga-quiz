@@ -6,9 +6,9 @@ export const FloatingLogout = () => {
   return (
     <div
       onClick={logout}
-      className="fixed gradient-bg flex justify-center items-center rounded-full p-5 logout-position shadow-lg"
+      className="fixed sm:hidden gradient-bg flex justify-center items-center rounded-full p-5 logout-position shadow-lg"
     >
-      <LogOut />
+      <LogOut color={`white`} />
     </div>
   );
 };

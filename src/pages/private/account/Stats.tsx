@@ -32,12 +32,12 @@ export const Stats = ({
                 }
                 className={`flex justify-between p-4 dark:hover:bg-gray-600 cursor-pointer  ${
                   index === length - 1
-                    ? `rounded-b-2xl border-gray-300 dark:border-gray-600`
+                    ? `rounded-b-2xl border border-gray-300 dark:border-gray-600`
                     : "border-b border-gray-300 dark:border-gray-600"
                 } ${
                   _id === showChartOf
-                    ? `bg-gray-100 dark:bg-gray-500`
-                    : `dark:bg-gray-700`
+                    ? `bg-gray-100 dark:bg-gray-500 border dark:border-gray-600 border-gray-300 border-top-none`
+                    : `border dark:bg-gray-700 border-top-none`
                 }`}
               >
                 <h1>{name}</h1>

@@ -98,7 +98,7 @@ export const Account = () => {
               </div>
               <FloatingLogout />
             </div>
-            <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-8">
+            <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-4 sm:gap-8">
               <div className="w-full sm:w-4/12">
                 <Stats
                   quizzesTaken={user.quizzesTaken}
