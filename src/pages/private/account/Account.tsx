@@ -56,7 +56,6 @@ export const Account = () => {
       title: {
         display: true,
         text: "Leaderboard scores",
-        color: "#E5E7EB",
         font: {
           size: 18,
           weight: "normal",
