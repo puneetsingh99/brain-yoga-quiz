@@ -5,13 +5,14 @@ import { Navbar, NavMobile } from "../../../components";
 import { Bar } from "react-chartjs-2";
 import { Loader } from "../../../components";
 import { Stats } from "./Stats";
-import { User } from "react-feather";
+import { User, LogOut } from "react-feather";
 
 export const Account = () => {
-  const { userId } = useAuth();
+  const { userId, logout } = useAuth();
   const { status, user, error, userDispatch, showChartOf } = useUser(userId);
   const quizId = showChartOf || "";
 
+  console.log(error);
   const { quiz } = useQuiz(quizId);
   const topScorers = quiz?.topScorers;
   const quizName = quiz?.name;
@@ -76,19 +77,26 @@ export const Account = () => {
   return (
     <>
       <Navbar />
-      <main className="w-full sm:w-11/12 m-auto py-4 px-2 flex justify-center items-center">
+      <main className="w-full sm:w-11/12 m-auto p-2 flex justify-center items-center">
         {status === "loading" && <Loader />}
         {status === "success" && user && (
-          <article className="w-full h-700 sm:w-750 sm:h-450 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
-            <div className="flex justify-between items-center w-full">
+          <article className="w-full sm:w-8/12 sm:h-500 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
+            <div className="flex justify-between items-center w-full mb-8">
               <h1 className="text-2xl tracking-wider">Dashboard</h1>
               <div className="flex justify-end items-center">
                 <User />
                 <p className="mx-2 text-lg">{`Hi, ${user.username}`}</p>
               </div>
+              <div
+                onClick={logout}
+                className="hidden sm:inline-block flex justify-end items-center p-2 rounded-xl bg-gray-700 cursor-pointer"
+              >
+                <LogOut />
+                <p className="mx-2 text-lg">{`Logout`}</p>
+              </div>
             </div>
-            <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-4">
-              <div className="w-full sm:w-4/12 mb-4 sm:mb-0">
+            <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-4 sm:gap-8">
+              <div className="w-full sm:w-4/12">
                 <Stats
                   quizzesTaken={user.quizzesTaken}
                   userDispatch={userDispatch}
@@ -98,8 +106,8 @@ export const Account = () => {
 
               <div className="w-full sm:w-8/12">
                 <div className="flex justify-between items-center sm:mb-12">
-                  <h2 className="text-lg mb-4">{quizName}</h2>
-                  <h2 className="text-lg mb-4">{`Your Score: ${score}`}</h2>
+                  <h2 className="text-lg">{quizName}</h2>
+                  <h2 className="text-lg">{`Your Score: ${score}`}</h2>
                 </div>
                 <Bar data={data} options={options} type={"bar"} />
               </div>

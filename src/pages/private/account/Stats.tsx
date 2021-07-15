@@ -16,9 +16,9 @@ export const Stats = ({
   return (
     <section className="w-full rounded-2xl mt-2">
       <div>
-        <div className="flex justify-between p-4 pb-2 mt-4 border border-gray-300 dark:border-gray-700 rounded-t-2xl border-b dark:border-gray-600 border-gray-100 dark:bg-gray-700">
+        <div className="flex justify-between p-4 pb-2 mt-4 border border-gray-300 dark:border-gray-600 rounded-t-2xl border-b dark:border-gray-600 border-gray-100 dark:bg-gray-700">
           <p>Quiz</p>
-          <p>Your Score</p>
+          <p>Score</p>
         </div>
         <ul>
           {quizzesTaken.map((quiz, index) => {
@@ -30,9 +30,9 @@ export const Stats = ({
                 onClick={() =>
                   userDispatch({ type: "SET_SHOW_CHART_OF", payload: _id })
                 }
-                className={`flex justify-between p-4 dark:hover:bg-gray-600 cursor-pointer  ${
+                className={`border border-red-500 flex justify-between p-4 dark:hover:bg-gray-600 cursor-pointer  ${
                   index === length - 1
-                    ? `rounded-b-2xl`
+                    ? `rounded-b-2xl border-gray-300 dark:border-gray-600`
                     : "border-b border-gray-300 dark:border-gray-600"
                 } ${
                   _id === showChartOf
