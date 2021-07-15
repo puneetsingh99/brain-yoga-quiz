@@ -12,8 +12,8 @@ export const QuizCard: React.FC<{ quiz: Quiz }> = ({ quiz }) => {
       onClick={() => navigate(routeQuizDetail(quiz._id))}
     >
       <h2 className="text-xl mb-2">Quiz</h2>
-      <div>
-        <img src={quiz.image} alt="describes quiz" className="mb-2" />
+      <div className="flex justify-center items-center">
+        <img src={quiz.image} alt="describes quiz" className="mb-2 w-5/6" />
       </div>
       <h2 className="text-xl">{quiz.name}</h2>
     </article>
