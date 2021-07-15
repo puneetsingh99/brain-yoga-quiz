@@ -6,6 +6,7 @@ import { Bar } from "react-chartjs-2";
 import { Loader } from "../../../components";
 import { Stats } from "./Stats";
 import { User, LogOut } from "react-feather";
+import { FloatingLogout } from "./FloatingLogout";
 
 export const Account = () => {
   const { userId, logout } = useAuth();
@@ -53,6 +54,7 @@ export const Account = () => {
   };
 
   const options = {
+    responsive: true,
     plugins: {
       title: {
         display: true,
@@ -77,10 +79,10 @@ export const Account = () => {
   return (
     <>
       <Navbar />
-      <main className="w-full sm:w-11/12 m-auto p-2 flex justify-center items-center">
+      <main className="w-full sm:w-11/12 m-auto p-2 sm:p-4 flex justify-center items-center">
         {status === "loading" && <Loader />}
         {status === "success" && user && (
-          <article className="w-full sm:w-8/12 sm:h-500 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
+          <article className="w-full sm:w-8/12 sm:h-500 m-auto p-4 px-4 sm:p-4 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
             <div className="flex justify-between items-center w-full mb-0 sm:mb-8">
               <h1 className="text-2xl tracking-wider">Dashboard</h1>
               <div className="flex justify-end items-center">
@@ -89,11 +91,12 @@ export const Account = () => {
               </div>
               <div
                 onClick={logout}
-                className="hidden sm:inline-block flex justify-end items-center p-2 rounded-xl bg-gray-700 cursor-pointer"
+                className="sm:block hidden sm:flex items-center  p-2 rounded-xl dark:bg-gray-700 bg-gray-100 cursor-pointer"
               >
                 <LogOut />
-                <p className="mx-2 text-lg">{`Logout`}</p>
+                <p className="text-lg ml-2">{`Logout`}</p>
               </div>
+              <FloatingLogout />
             </div>
             <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-8">
               <div className="w-full sm:w-4/12">
@@ -104,8 +107,8 @@ export const Account = () => {
                 />
               </div>
 
-              <div className="w-full sm:w-8/12 border border-gray-300 dark:border-gray-600 p-4 rounded-3xl dark:bg-gray-700">
-                <div className="flex justify-between items-center sm:mb-12">
+              <div className="w-full sm:w-8/12 border border-gray-300 dark:border-gray-700 sm:p-4 p-2 rounded-3xl">
+                <div className="flex justify-between items-center sm:mb-10 mb-8">
                   <h2 className="text-lg">{quizName}</h2>
                   <h2 className="text-lg">{`Your Score: ${score}`}</h2>
                 </div>

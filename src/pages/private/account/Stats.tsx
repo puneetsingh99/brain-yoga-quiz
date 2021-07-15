@@ -30,7 +30,7 @@ export const Stats = ({
                 onClick={() =>
                   userDispatch({ type: "SET_SHOW_CHART_OF", payload: _id })
                 }
-                className={`border border-red-500 flex justify-between p-4 dark:hover:bg-gray-600 cursor-pointer  ${
+                className={`flex justify-between p-4 dark:hover:bg-gray-600 cursor-pointer  ${
                   index === length - 1
                     ? `rounded-b-2xl border-gray-300 dark:border-gray-600`
                     : "border-b border-gray-300 dark:border-gray-600"
