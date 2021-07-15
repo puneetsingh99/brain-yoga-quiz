@@ -737,6 +737,10 @@ video {
   margin-bottom: 4rem;
 }
 
+.mb-0{
+  margin-bottom: 0px;
+}
+
 .flex{
   display: -webkit-flex;
   display: flex;

@@ -81,7 +81,7 @@ export const Account = () => {
         {status === "loading" && <Loader />}
         {status === "success" && user && (
           <article className="w-full sm:w-8/12 sm:h-500 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
-            <div className="flex justify-between items-center w-full mb-4 sm:mb-8">
+            <div className="flex justify-between items-center w-full mb-0 sm:mb-8">
               <h1 className="text-2xl tracking-wider">Dashboard</h1>
               <div className="flex justify-end items-center">
                 <User />
@@ -95,7 +95,7 @@ export const Account = () => {
                 <p className="mx-2 text-lg">{`Logout`}</p>
               </div>
             </div>
-            <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-4 sm:gap-8">
+            <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-8">
               <div className="w-full sm:w-4/12">
                 <Stats
                   quizzesTaken={user.quizzesTaken}
@@ -104,7 +104,7 @@ export const Account = () => {
                 />
               </div>
 
-              <div className="w-full sm:w-8/12">
+              <div className="w-full sm:w-8/12 border border-gray-300 dark:border-gray-600 p-4 rounded-3xl dark:bg-gray-700">
                 <div className="flex justify-between items-center sm:mb-12">
                   <h2 className="text-lg">{quizName}</h2>
                   <h2 className="text-lg">{`Your Score: ${score}`}</h2>
