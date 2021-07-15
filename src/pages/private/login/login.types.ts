@@ -1,4 +1,4 @@
-import { ServerError } from "../../../services/serverError.types";
+import { ServerError } from "../../../types/serverError.types";
 
 export type LoginStatus = "idle" | "logging in" | "login successful" | "error";
 

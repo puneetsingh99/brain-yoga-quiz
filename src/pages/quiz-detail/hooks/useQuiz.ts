@@ -1,6 +1,6 @@
 import { useReducer, useEffect } from "react";
 import { getQuiz } from "../../../services";
-import { ServerError } from "../../../services/serverError.types";
+import { ServerError } from "../../../types/serverError.types";
 import { Quiz, Status } from "../../../types";
 
 type QuizType = {

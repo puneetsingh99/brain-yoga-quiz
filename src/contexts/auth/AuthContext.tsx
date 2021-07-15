@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { setupAuthHeaders } from "../../utils/setupAuthHeaders";
 import axios, { AxiosError } from "axios";
-import { ServerError } from "../../services/serverError.types";
+import { ServerError } from "../../types/serverError.types";
 import {
   LoginResponse,
   LoginUser,

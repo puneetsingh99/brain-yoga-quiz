@@ -1,5 +1,5 @@
 import { Quiz } from "../types";
-import { ServerError } from "./serverError.types";
+import { ServerError } from "../types/serverError.types";
 import axios, { AxiosError } from "axios";
 import { API_QUIZZES } from "../utils/urls";
 

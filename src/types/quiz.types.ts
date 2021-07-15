@@ -1,4 +1,4 @@
-import { ServerError } from "../services/serverError.types";
+import { ServerError } from "./serverError.types";
 import { Status } from "./status.types";
 
 export type ACTIONTYPE =
@@ -50,14 +50,6 @@ export type Quiz = {
   topScorers: TopScorer[];
   createdAt?: string;
   updatedAt?: string;
-};
-
-export type User = {
-  name: String;
-  username: String;
-  quizzesTaken: Quiz[];
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type QuizzesContext = {

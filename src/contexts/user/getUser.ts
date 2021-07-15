@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
-import { ServerError } from "../../services/serverError.types";
-import { GetUserResponse } from "./user.types";
+import { ServerError } from "../../types/serverError.types";
+import { GetUserResponse } from "../../types/user.types";
 import { getUserApi } from "../../utils/urls";
 
 export const getUser = async (
