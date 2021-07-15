@@ -660,6 +660,11 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.mx-2{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .mb-2{
   margin-bottom: 0.5rem;
 }
@@ -781,6 +786,10 @@ video {
   width: 300px;
 }
 
+.w-5\/6{
+  width: 83.333333%;
+}
+
 .w-max{
   width: -webkit-max-content;
   width: max-content;
@@ -831,6 +840,11 @@ video {
           justify-content: flex-start;
 }
 
+.justify-end{
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+
 .justify-center{
   -webkit-justify-content: center;
           justify-content: center;
@@ -857,8 +871,22 @@ video {
   border-radius: 0.5rem;
 }
 
+.rounded-2xl{
+  border-radius: 1rem;
+}
+
 .rounded{
   border-radius: 0.25rem;
+}
+
+.rounded-t-2xl{
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.rounded-b-2xl{
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .border{
@@ -878,6 +906,11 @@ video {
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
 
+.border-gray-600{
+  --tw-border-opacity: 1;
+  border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+}
+
 .border-gray-700{
   --tw-border-opacity: 1;
   border-color: rgba(55, 65, 81, var(--tw-border-opacity));
@@ -891,6 +924,11 @@ video {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
+
+.bg-gray-700{
+  --tw-bg-opacity: 1;
+  background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
 }
 
 .p-4{
@@ -943,12 +981,12 @@ video {
   padding-bottom: 1rem;
 }
 
-.pt-4{
-  padding-top: 1rem;
-}
-
 .pb-2{
   padding-bottom: 0.5rem;
+}
+
+.pt-4{
+  padding-top: 1rem;
 }
 
 .text-center{
@@ -1059,6 +1097,11 @@ video {
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 
+.hover\:bg-gray-600:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+}
+
 .hover\:text-gray-700:hover{
   --tw-text-opacity: 1;
   color: rgba(55, 65, 81, var(--tw-text-opacity));
@@ -1102,6 +1145,11 @@ video {
 .dark .dark\:bg-gray-800{
   --tw-bg-opacity: 1;
   background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-gray-500{
+  --tw-bg-opacity: 1;
+  background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
 
 .dark .dark\:bg-gray-700{
@@ -1177,6 +1225,18 @@ video {
 
   .sm\:w-375{
     width: 375px;
+  }
+
+  .sm\:w-700{
+    width: 700px;
+  }
+
+  .sm\:w-5\/12{
+    width: 41.666667%;
+  }
+
+  .sm\:w-230{
+    width: 230px;
   }
 
   .sm\:flex-row{
