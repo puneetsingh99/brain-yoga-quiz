@@ -81,7 +81,7 @@ export const Account = () => {
         {status === "loading" && <Loader />}
         {status === "success" && user && (
           <article className="w-full sm:w-8/12 sm:h-500 m-auto p-4 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
-            <div className="flex justify-between items-center w-full mb-8">
+            <div className="flex justify-between items-center w-full mb-4 sm:mb-8">
               <h1 className="text-2xl tracking-wider">Dashboard</h1>
               <div className="flex justify-end items-center">
                 <User />
