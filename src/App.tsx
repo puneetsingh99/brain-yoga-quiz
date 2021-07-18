@@ -15,6 +15,8 @@ import { PrivateRoute } from "./components";
 
 const App = () => {
   const { theme } = useTheme();
+  // localStorage.removeItem("timer");
+  // localStorage.removeItem("persistentQuizState");
 
   return (
     <div className={`${theme}`}>

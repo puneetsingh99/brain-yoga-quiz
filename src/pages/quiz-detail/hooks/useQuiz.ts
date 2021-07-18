@@ -15,12 +15,12 @@ const initialState: QuizType = {
   error: null,
 };
 
-type ACTIONTYPE =
+type ACTION_TYPE =
   | { type: "SET_STATUS"; payload: Status }
   | { type: "SET_QUIZ"; payload: Quiz }
   | { type: "SET_ERROR"; payload: ServerError };
 
-const quizReducer = (state: QuizType, action: ACTIONTYPE): QuizType => {
+const quizReducer = (state: QuizType, action: ACTION_TYPE): QuizType => {
   switch (action.type) {
     case "SET_STATUS":
       return { ...state, status: action.payload };

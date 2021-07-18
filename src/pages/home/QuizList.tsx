@@ -1,11 +1,11 @@
 import React from "react";
 import { Quiz } from "../../types";
-import { useQuiz } from "../../contexts";
+import { useQuizList } from "../../contexts";
 import { QuizCard } from "./QuizCard";
 import { Loader } from "../../components";
 
 export const QuizList: React.FC = () => {
-  const { status, quizzes, error } = useQuiz();
+  const { status, quizzes, error } = useQuizList();
 
   return (
     <section className="text-center font-semibold mt-8 pb-24 tracking-wider ">

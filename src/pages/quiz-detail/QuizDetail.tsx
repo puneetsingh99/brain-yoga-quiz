@@ -5,13 +5,11 @@ import { Navbar, Loader, NavMobile } from "../../components";
 import { useParams, Link } from "react-router-dom";
 import { useQuiz } from "./hooks/useQuiz";
 import { LeaderBoard } from "./leaderboard/LeaderBoard";
-import { ROUTE_TAKE_QUIZ } from "../../utils/routes";
+import { routeTakeQuiz } from "../../utils/routes";
 
 export const QuizDetail: React.FC = () => {
   const { id } = useParams();
   const { status, quiz, error } = useQuiz(id);
-  console.log("quiz");
-  console.log(quiz?.topScorers);
   const [showLeaderBoard, setShowLeaderBoard] = useState<boolean>(false);
 
   return (
@@ -73,7 +71,7 @@ export const QuizDetail: React.FC = () => {
                     </li>
                   </ul>
                   <div className="flex justify-center items-center sm:py-4">
-                    <Link to={ROUTE_TAKE_QUIZ}>
+                    <Link to={routeTakeQuiz(id)}>
                       <button className="px-8 py-2 m-auto rounded-lg gradient-bg font-semibold text-white hover:scale-105 shadow-md hover:shadow-lg transition duration-100 ease-in-out">
                         Take Quiz
                       </button>

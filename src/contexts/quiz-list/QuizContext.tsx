@@ -45,6 +45,6 @@ export const QuizListProvider: React.FC = ({ children }) => {
   );
 };
 
-export const useQuiz = () => {
+export const useQuizList = () => {
   return useContext(QuizListContext);
 };

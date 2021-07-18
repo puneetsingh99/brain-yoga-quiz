@@ -25,6 +25,7 @@ export const Account = () => {
     (quiz) => quiz.quiz._id === quizId
   )?.score;
 
+  //TODO:move this to a separate file
   const data = {
     type: "bar",
     labels: topScorersName,
@@ -79,7 +80,7 @@ export const Account = () => {
   return (
     <>
       <Navbar />
-      <main className="w-full sm:w-11/12 m-auto p-2 sm:p-4 flex justify-center items-center">
+      <main className="w-full sm:w-11/12 m-auto sm:p-4 sm:pb-8 p-2 pb-8  flex justify-center items-center">
         {status === "loading" && <Loader />}
         {status === "success" && user && (
           <article className="w-full sm:w-8/12 sm:h-500 m-auto p-4 px-4 sm:p-4 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
@@ -94,28 +95,37 @@ export const Account = () => {
                 className="sm:block hidden sm:flex items-center  p-2 rounded-xl dark:bg-gray-700 bg-gray-100 cursor-pointer"
               >
                 <LogOut />
-                <p className="text-lg ml-2">{`Logout`}</p>
+                <p className="text-lg ml-2">{`Log out`}</p>
               </div>
               <FloatingLogout />
             </div>
-            <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-4 sm:gap-8">
-              <div className="w-full sm:w-4/12">
-                <Stats
-                  quizzesTaken={user.quizzesTaken}
-                  userDispatch={userDispatch}
-                  showChartOf={showChartOf}
-                />
-              </div>
-
-              <div className="w-full sm:w-8/12 border border-gray-300 dark:border-gray-700 sm:p-4 p-2 rounded-3xl">
-                <div className="flex justify-between items-center sm:mb-10 mb-8">
-                  <h2 className="text-lg">{quizName}</h2>
-                  <h2 className="text-lg">{`Your Score: ${score}`}</h2>
+            {user.quizzesTaken.length === 0 ? (
+              <h1>You have not yet taken any quiz</h1>
+            ) : (
+              <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-4 sm:gap-8">
+                <div className="w-full sm:w-4/12">
+                  <Stats
+                    quizzesTaken={user.quizzesTaken}
+                    userDispatch={userDispatch}
+                    showChartOf={showChartOf}
+                  />
                 </div>
-                <Bar data={data} options={options} type={"bar"} />
+
+                <div className="w-full sm:w-8/12 border border-gray-300 dark:border-gray-700 sm:p-4 p-2 rounded-3xl">
+                  <div className="flex justify-between items-center sm:mb-10 mb-8">
+                    <h2 className="text-lg">{quizName}</h2>
+                    <h2 className="text-lg">{`Your Score: ${score}`}</h2>
+                  </div>
+                  <Bar data={data} options={options} type={"bar"} />
+                </div>
               </div>
-            </div>
+            )}
           </article>
+        )}
+        {status === "error" && (
+          <div>
+            <h1>{error?.message}</h1>
+          </div>
         )}
       </main>
       <NavMobile />

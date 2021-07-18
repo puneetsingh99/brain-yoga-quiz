@@ -9,3 +9,4 @@ export const ROUTE_SIGN_UP = `/signup`;
 export const ROUTE_ACCOUNT = `/account`;
 
 export const routeQuizDetail = (id: string): string => `/quiz/detail/${id}`;
+export const routeTakeQuiz = (id: string): string => `/quiz/take/${id}`;
