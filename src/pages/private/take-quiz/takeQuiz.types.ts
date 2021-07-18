@@ -1,3 +1,5 @@
+import { Quiz } from "../../../types";
+
 export type Response = {
   questionId: string;
   optionId: string;
@@ -26,11 +28,12 @@ export type TakeQuiz = {
   currQuestion: number;
   questionList: QuestionAndResponse[];
   score: number;
+  presentInLeaderBoard: boolean;
 };
 
 export type TAKE_QUIZ_ACTION =
   | { type: "SET_SCORE"; payload: number }
-  | { type: "SET_QUESTION_LIST"; payload: Question[] }
+  | { type: "SET_TAKE_QUIZ_STATE"; payload: Quiz }
   | { type: "SET_RESPONSE"; payload: Response }
   | { type: "SET_CURRENT_QUESTION"; payload: "increment" | "decrement" }
   | { type: "SET_CONFETTI"; payload: boolean };

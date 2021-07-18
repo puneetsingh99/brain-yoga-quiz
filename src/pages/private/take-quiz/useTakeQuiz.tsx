@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from "react";
+import { useAuth } from "../../../contexts";
 import { useLocalStorage } from "../../../hooks";
 import { useQuiz } from "../../quiz-detail/hooks/useQuiz";
 import { TakeQuiz, TAKE_QUIZ_ACTION } from "./takeQuiz.types";
@@ -30,11 +31,13 @@ const takeQuizInitialState: TakeQuiz = {
   currQuestion: 0,
   questionList: [],
   score: 0,
+  presentInLeaderBoard: false,
 };
 
 export const useTakeQuiz = (id: string) => {
   //submit quiz
   //cancel quiz
+  const { userId } = useAuth();
   const { status, quiz, error } = useQuiz(id);
   console.log({ status, quiz, error });
 
@@ -50,12 +53,21 @@ export const useTakeQuiz = (id: string) => {
     action: TAKE_QUIZ_ACTION
   ): TakeQuiz => {
     switch (action.type) {
-      case "SET_QUESTION_LIST":
-        const questionList = action.payload.map((q) => ({
+      case "SET_TAKE_QUIZ_STATE":
+        const questionList = action.payload.questions.map((q) => ({
           ...q,
           selectedOption: "NA",
         }));
-        const updateQuestionList = { ...state, questionList: questionList };
+        const userPresent = action.payload.topScorers.find(
+          (topScorer) => topScorer.user._id === userId
+        );
+        const presentInLeaderBoard = userPresent ? true : false;
+        console.log({ presentInLeaderBoard });
+        const updateQuestionList = {
+          ...state,
+          questionList: questionList,
+          presentInLeaderBoard: presentInLeaderBoard,
+        };
         setPersistentQuizState(updateQuestionList);
         return updateQuestionList;
 
@@ -107,22 +119,15 @@ export const useTakeQuiz = (id: string) => {
     persistentQuizState
   );
 
-  // const [leaderBoard, setLeaderBoard] = useState(() => ({
-  //   presentInLeaderBoard: false,
-  //   popConfetti: false,
-  // }));
-
   useEffect(() => {
     if (quiz) {
-      takeQuizDispatch({ type: "SET_QUESTION_LIST", payload: quiz.questions });
+      takeQuizDispatch({ type: "SET_TAKE_QUIZ_STATE", payload: quiz });
     }
 
     return () => {
       window.localStorage.removeItem("persistentQuizState");
     };
   }, [quiz]);
-
-  console.log("useTakeQuiz is re-rendering");
 
   return {
     status,
