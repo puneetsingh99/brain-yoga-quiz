@@ -1,6 +1,5 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import { useLocalStorage } from "../../../hooks";
-import { Quiz } from "../../../types";
 import { useQuiz } from "../../quiz-detail/hooks/useQuiz";
 import { TakeQuiz, TAKE_QUIZ_ACTION } from "./takeQuiz.types";
 
@@ -117,6 +116,10 @@ export const useTakeQuiz = (id: string) => {
     if (quiz) {
       takeQuizDispatch({ type: "SET_QUESTION_LIST", payload: quiz.questions });
     }
+
+    return () => {
+      window.localStorage.removeItem("persistentQuizState");
+    };
   }, [quiz]);
 
   console.log("useTakeQuiz is re-rendering");

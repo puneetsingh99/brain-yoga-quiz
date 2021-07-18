@@ -1,4 +1,3 @@
-import { useTimer } from "./useTimer";
 import { formatTimer } from "./utils/formatTimer";
 import { useLocalStorage } from "../../../hooks";
 import { useState, useEffect } from "react";
