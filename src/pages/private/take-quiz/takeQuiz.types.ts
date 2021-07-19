@@ -33,7 +33,7 @@ export type TakeQuiz = {
 
 export type TAKE_QUIZ_ACTION =
   | { type: "SET_SCORE"; payload: number }
-  | { type: "SET_TAKE_QUIZ_STATE"; payload: Quiz }
+  | { type: "SET_QUESTION_LIST"; payload: Question[] }
   | { type: "SET_RESPONSE"; payload: Response }
   | { type: "SET_CURRENT_QUESTION"; payload: "increment" | "decrement" }
   | { type: "SET_CONFETTI"; payload: boolean };

@@ -53,20 +53,15 @@ export const useTakeQuiz = (id: string) => {
     action: TAKE_QUIZ_ACTION
   ): TakeQuiz => {
     switch (action.type) {
-      case "SET_TAKE_QUIZ_STATE":
-        const questionList = action.payload.questions.map((q) => ({
+      case "SET_QUESTION_LIST":
+        const questionList = action.payload.map((q) => ({
           ...q,
           selectedOption: "NA",
         }));
-        const userPresent = action.payload.topScorers.find(
-          (topScorer) => topScorer.user._id === userId
-        );
-        const presentInLeaderBoard = userPresent ? true : false;
-        console.log({ presentInLeaderBoard });
         const updateQuestionList = {
           ...state,
           questionList: questionList,
-          presentInLeaderBoard: presentInLeaderBoard,
+          // presentInLeaderBoard: presentInLeaderBoard,
         };
         setPersistentQuizState(updateQuestionList);
         return updateQuestionList;
@@ -121,13 +116,23 @@ export const useTakeQuiz = (id: string) => {
 
   useEffect(() => {
     if (quiz) {
-      takeQuizDispatch({ type: "SET_TAKE_QUIZ_STATE", payload: quiz });
+      const userPresent = quiz.topScorers.find(
+        (topScorer) => topScorer.user._id === userId
+      );
+      const presentInLeaderBoard = userPresent ? true : false;
+
+      window.localStorage.setItem(
+        "inLeaderBoard",
+        String(presentInLeaderBoard)
+      );
+
+      takeQuizDispatch({ type: "SET_QUESTION_LIST", payload: quiz.questions });
     }
 
     return () => {
       window.localStorage.removeItem("persistentQuizState");
     };
-  }, [quiz]);
+  }, [quiz, userId]);
 
   return {
     status,
