@@ -7,6 +7,9 @@ module.exports = {
         logo: ["Cedarville Cursive", "cursive"],
         body: ["Poppins", "sans-serif"],
       },
+      gridTemplateRows: {
+        181: "1fr 8fr 1fr",
+      },
       colors: {
         dark: {
           900: "#121212",

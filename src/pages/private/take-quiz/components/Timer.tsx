@@ -1,5 +1,5 @@
-import { formatTimer } from "./utils/formatTimer";
-import { useLocalStorage } from "../../../hooks";
+import { formatTimer } from "../utils/formatTimer";
+import { useLocalStorage } from "../../../../hooks";
 import { useState, useEffect } from "react";
 
 export const Timer = ({ timelimit }: { timelimit: number }) => {

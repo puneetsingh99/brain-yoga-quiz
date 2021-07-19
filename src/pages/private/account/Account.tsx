@@ -13,7 +13,6 @@ export const Account = () => {
   const { status, user, error, userDispatch, showChartOf } = useUser(userId);
   const quizId = showChartOf || "";
 
-  console.log(error);
   const { quiz } = useQuiz(quizId);
   const topScorers = quiz?.topScorers;
   const quizName = quiz?.name;
