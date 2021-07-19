@@ -9,25 +9,27 @@ type PrivateRouteType = {
 
 export const PrivateRoute = ({ path, element, ...props }: PrivateRouteType) => {
   const { isUserLoggedIn } = useAuth();
-  let loginUser = !isUserLoggedIn;
+  console.log("path coming to privateRoute");
+  console.log({ path });
+  // let loginUser = !isUserLoggedIn;
 
-  if (isUserLoggedIn) {
-    const loginObject = localStorage.getItem("brainYogaLogin");
+  // if (isUserLoggedIn) {
+  //   const loginObject = localStorage.getItem("brainYogaLogin");
 
-    if (loginObject) {
-      const token = JSON.parse(loginObject).token;
-      const expiryTime = checkTokenExpiry(token);
-      const isTokenExpired = Date.now() >= expiryTime * 1000;
+  //   if (loginObject) {
+  //     const token = JSON.parse(loginObject).token;
+  //     const expiryTime = checkTokenExpiry(token);
+  //     const isTokenExpired = Date.now() >= expiryTime * 1000;
 
-      if (isTokenExpired) {
-        loginUser = true;
-      }
-    } else {
-      console.log("Login object not found in the localStorage");
-    }
-  }
+  //     if (isTokenExpired) {
+  //       loginUser = true;
+  //     }
+  //   } else {
+  //     console.log("Login object not found in the localStorage");
+  //   }
+  // }
 
-  return loginUser ? (
+  return !isUserLoggedIn ? (
     <Navigate state={{ from: path }} replace to="/login" />
   ) : (
     <Route {...props} path={path} element={element} />

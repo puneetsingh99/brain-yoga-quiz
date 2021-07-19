@@ -1,5 +1,6 @@
 import { Quiz } from "../../../../types";
 import { TakeQuiz, TAKE_QUIZ_ACTION } from "../takeQuiz.types";
+import test_img from "../../../../assets/test_img.jpg";
 
 type TakeQuizMainType = {
   quiz: Quiz;
@@ -47,7 +48,7 @@ export const TakeQuizMain = ({
       <div className="w-full sm:w-6/12 p-4 px-0 flex justify-center items-end">
         <img
           className="rounded-2xl border dark:border-gray-700 border-gray-200"
-          src="https://images.unsplash.com/photo-1607459726451-44808af96022?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+          src={test_img}
           alt="helps explaining the question"
         />
       </div>
