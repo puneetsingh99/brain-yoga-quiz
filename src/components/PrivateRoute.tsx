@@ -1,5 +1,5 @@
 import { checkTokenExpiry } from "../utils/checkTokenExpiry";
-import { Route, Navigate } from "react-router-dom";
+import { Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts";
 
 type PrivateRouteType = {
@@ -9,28 +9,28 @@ type PrivateRouteType = {
 
 export const PrivateRoute = ({ path, element, ...props }: PrivateRouteType) => {
   const { isUserLoggedIn } = useAuth();
-  console.log("path coming to privateRoute");
-  console.log({ path });
-  // let loginUser = !isUserLoggedIn;
+  const location = useLocation();
 
-  // if (isUserLoggedIn) {
-  //   const loginObject = localStorage.getItem("brainYogaLogin");
+  let loginUser = !isUserLoggedIn;
 
-  //   if (loginObject) {
-  //     const token = JSON.parse(loginObject).token;
-  //     const expiryTime = checkTokenExpiry(token);
-  //     const isTokenExpired = Date.now() >= expiryTime * 1000;
+  if (isUserLoggedIn) {
+    const loginObject = localStorage.getItem("brainYogaLogin");
 
-  //     if (isTokenExpired) {
-  //       loginUser = true;
-  //     }
-  //   } else {
-  //     console.log("Login object not found in the localStorage");
-  //   }
-  // }
+    if (loginObject) {
+      const token = JSON.parse(loginObject).token;
+      const expiryTime = checkTokenExpiry(token);
+      const isTokenExpired = Date.now() >= expiryTime * 1000;
+
+      if (isTokenExpired) {
+        loginUser = true;
+      }
+    } else {
+      console.log("Login object not found in the localStorage");
+    }
+  }
 
   return !isUserLoggedIn ? (
-    <Navigate state={{ from: path }} replace to="/login" />
+    <Navigate state={{ from: location.pathname }} replace to="/login" />
   ) : (
     <Route {...props} path={path} element={element} />
   );
