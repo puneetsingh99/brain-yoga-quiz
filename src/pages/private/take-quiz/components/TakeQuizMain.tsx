@@ -31,7 +31,15 @@ export const TakeQuizMain = ({
                     questionList[currQuestion].selectedOption === _id;
                   return (
                     <li
-                      onClick={() => {}}
+                      onClick={() => {
+                        takeQuizDispatch({
+                          type: "SET_RESPONSE",
+                          payload: {
+                            questionId: questionList[currQuestion]._id,
+                            optionId: _id,
+                          },
+                        });
+                      }}
                       className={`px-2 py-3 mt-4 rounded-xl dark:bg-gray-700 dark:hover:bg-gray-600 bg-gray-100 cursor-pointer transition duration-300 ease-in-out ${
                         isSelected && `dark:bg-gray-600 bg-gray-100`
                       }`}
