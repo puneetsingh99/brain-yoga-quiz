@@ -35,8 +35,6 @@ const takeQuizInitialState: TakeQuiz = {
 };
 
 export const useTakeQuiz = (id: string) => {
-  //submit quiz
-  //cancel quiz
   const { userId } = useAuth();
   const { status, quiz, error } = useQuiz(id);
   console.log({ status, quiz, error });

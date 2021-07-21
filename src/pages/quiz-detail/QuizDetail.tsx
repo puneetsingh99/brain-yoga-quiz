@@ -9,7 +9,6 @@ import { routeTakeQuiz } from "../../utils/routes";
 
 export const QuizDetail: React.FC = () => {
   const { id } = useParams();
-  console.log("id straight from useParams", { id });
   const { status, quiz, error } = useQuiz(id);
   const [showLeaderBoard, setShowLeaderBoard] = useState<boolean>(false);
 

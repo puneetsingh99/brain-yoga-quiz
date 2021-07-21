@@ -1,6 +1,7 @@
 import { Quiz } from "../../../../types";
 import { TakeQuiz, TAKE_QUIZ_ACTION } from "../takeQuiz.types";
 import test_img from "../../../../assets/test_img.jpg";
+import { useState } from "react";
 
 type TakeQuizMainType = {
   quiz: Quiz;
@@ -41,7 +42,8 @@ export const TakeQuizMain = ({
                         });
                       }}
                       className={`px-2 py-3 mt-4 rounded-xl dark:bg-gray-700 dark:hover:bg-gray-600 bg-gray-100 cursor-pointer transition duration-300 ease-in-out ${
-                        isSelected && `dark:bg-gray-600 bg-gray-100`
+                        isSelected &&
+                        `dark:bg-gray-500 bg-gray-200 ring-4 ring-blue-500 ring-opacity-60`
                       }`}
                       key={_id}
                     >{`${option}`}</li>

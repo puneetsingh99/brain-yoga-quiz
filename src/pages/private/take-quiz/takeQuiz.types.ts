@@ -37,3 +37,19 @@ export type TAKE_QUIZ_ACTION =
   | { type: "SET_RESPONSE"; payload: Response }
   | { type: "SET_CURRENT_QUESTION"; payload: "increment" | "decrement" }
   | { type: "SET_CONFETTI"; payload: boolean };
+
+export type SubmitQuizState = {
+  showSubmitQuizModal: boolean;
+  showQuitQuizModal: boolean;
+  submitQuiz: boolean;
+  quitQuiz: boolean;
+};
+
+export type SUBMIT_QUIZ_ACTION =
+  | { type: "SUBMIT_QUIZ"; payload: boolean }
+  | { type: "QUIT_QUIZ"; payload: boolean }
+  | {
+      type: "SHOW_SUBMIT_QUIZ_MODAL";
+      payload: boolean;
+    }
+  | { type: "SHOW_QUIT_QUIZ_MODAL"; payload: boolean };

@@ -1,14 +1,20 @@
 import { Quiz } from "../../../../types";
-import { TakeQuiz, TAKE_QUIZ_ACTION } from "../takeQuiz.types";
+import {
+  SUBMIT_QUIZ_ACTION,
+  TakeQuiz,
+  TAKE_QUIZ_ACTION,
+} from "../takeQuiz.types";
 
 type TakeQuizNavType = {
   takeQuizState: TakeQuiz;
   takeQuizDispatch: React.Dispatch<TAKE_QUIZ_ACTION>;
+  dispatchSubmitQuiz: React.Dispatch<SUBMIT_QUIZ_ACTION>;
 };
 
 export const TakeQuizNav = ({
   takeQuizState,
   takeQuizDispatch,
+  dispatchSubmitQuiz,
 }: TakeQuizNavType) => {
   const { questionList, currQuestion } = takeQuizState;
   const numberOfQuestions = questionList.length;
@@ -19,9 +25,21 @@ export const TakeQuizNav = ({
     <section className={`w-full flex items-center justify-end `}>
       <div className="w-3/6 flex flex-start ">
         <div className="w-8/12   flex justify-end">
-          {!firstQuestion && (
+          {firstQuestion ? (
             <button
-              className={`px-6 py-2 rounded-lg gradient-bg font-semibold text-white transition duration-100 ease-in-out`}
+              className={`px-6 py-2 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold text-white transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
+              onClick={() =>
+                dispatchSubmitQuiz({
+                  type: "SHOW_QUIT_QUIZ_MODAL",
+                  payload: true,
+                })
+              }
+            >
+              {`Quit`}
+            </button>
+          ) : (
+            <button
+              className={`px-6 py-2 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold text-white transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
               onClick={() => {
                 takeQuizDispatch({
                   type: "SET_CURRENT_QUESTION",
@@ -36,16 +54,19 @@ export const TakeQuizNav = ({
         <div className="w-4/12    flex justify-end">
           {lastQuestion ? (
             <button
-              className={`px-6 py-2 rounded-lg gradient-bg font-semibold text-white transition duration-100 ease-in-out`}
-              onClick={() => {
-                console.log("handle submit");
-              }}
+              className={`px-6 py-2 rounded-lg gradient-bg font-semibold text-white transition duration-100 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
+              onClick={() =>
+                dispatchSubmitQuiz({
+                  type: "SHOW_SUBMIT_QUIZ_MODAL",
+                  payload: true,
+                })
+              }
             >
               {`Submit`}
             </button>
           ) : (
             <button
-              className={`px-6 py-2 rounded-lg gradient-bg font-semibold text-white transition duration-100 ease-in-out cursor-pointer`}
+              className={`px-6 py-2 rounded-lg bg-blue-500 hover:bg-blue-600  font-semibold text-white transition duration-100 ease-in-out cursor-pointer focus:ring-4 ring-blue-500 ring-opacity-60`}
               onClick={() => {
                 takeQuizDispatch({
                   type: "SET_CURRENT_QUESTION",

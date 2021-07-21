@@ -10,3 +10,5 @@ export const API_LOGIN = `${ROOT_PATH}/login`;
 
 export const getQuizApi = (id: string): string => `${ROOT_PATH}/quiz/${id}`;
 export const getUserApi = (id: string): string => `${ROOT_PATH}/user/${id}`;
+export const submitQuizApi = (userId: string) =>
+  `${API_USERS}/${userId}/quiz-taken/`;
