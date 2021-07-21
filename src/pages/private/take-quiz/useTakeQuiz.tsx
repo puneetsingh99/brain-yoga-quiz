@@ -129,6 +129,7 @@ export const useTakeQuiz = (id: string) => {
 
     return () => {
       window.localStorage.removeItem("persistentQuizState");
+      window.localStorage.removeItem("inLeaderBoard");
     };
   }, [quiz, userId]);
 

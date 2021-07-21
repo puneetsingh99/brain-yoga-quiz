@@ -22,7 +22,7 @@ export const TakeQuizNav = ({
   const lastQuestion = currQuestion + 1 === numberOfQuestions;
 
   return (
-    <section className={`w-full flex items-center justify-end `}>
+    <section className={`w-full flex items-center justify-end border`}>
       <div className="w-3/6 flex flex-start ">
         <div className="w-8/12   flex justify-end">
           {firstQuestion ? (
