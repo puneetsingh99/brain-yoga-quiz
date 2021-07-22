@@ -6,6 +6,7 @@ import { useParams, Link } from "react-router-dom";
 import { useQuiz } from "./hooks/useQuiz";
 import { LeaderBoard } from "./leaderboard/LeaderBoard";
 import { routeTakeQuiz } from "../../utils/routes";
+import { QuizDetailDesktop } from "./QuizDetailDesktop";
 
 export const QuizDetail: React.FC = () => {
   const { id } = useParams();
@@ -19,7 +20,11 @@ export const QuizDetail: React.FC = () => {
         <section className="w-full p-2 flex sm:flex-row flex-col justify-center items-center">
           {status === "loading" && <Loader />}
           {status === "success" && quiz && (
-            <div className="w-full sm:w-375">
+            <QuizDetailDesktop quiz={quiz} id={id} />
+          )}
+
+          {status === "success" && quiz && (
+            <div className="block sm:hidden w-full sm:w-375">
               <nav className="flex justify-between items-center my-2">
                 <div
                   className={`w-full py-4 flex justify-center items-center cursor-pointer hover:bg-white dark:hover:bg-gray-800 rounded-xl ${
@@ -38,6 +43,7 @@ export const QuizDetail: React.FC = () => {
                   <AiOutlineTrophy size={25} />
                 </div>
               </nav>
+
               {showLeaderBoard && <LeaderBoard topScorers={quiz.topScorers} />}
               {!showLeaderBoard && (
                 <article className="w-full h-500 sm:w-375 sm:h-450 text-lg bg-white dark:bg-gray-800 p-4 rounded-3xl shadow-md">

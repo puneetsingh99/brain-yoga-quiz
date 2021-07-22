@@ -53,7 +53,7 @@ export const TopScoringUser = ({
         <h2 className="ml-12 sm:ml-14">{username}</h2>
       </div>
       <div className="w-3/12 text-gray-900 dark:text-gray-100">
-        <p className="ml-14 sm:ml-14">{score}</p>
+        <p className="ml-14 sm:ml-12">{score}</p>
       </div>
     </li>
   );
