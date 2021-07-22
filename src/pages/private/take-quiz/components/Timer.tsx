@@ -9,7 +9,6 @@ export const Timer = ({ timelimit }: { timelimit: number }) => {
   );
 
   const [timer, setTimer] = useState(persistTimer);
-  // console.log({ persistTimer, timer });
 
   useEffect(() => {
     setPersistTimer(timer);

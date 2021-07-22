@@ -53,7 +53,12 @@ export const TakeQuiz = () => {
         {status === "loading" && <Loader />}
         {status === "success" && quiz && (
           <article className="w-full sm:max-w-800 sm:min-h-500 m-auto p-4 px-4 sm:p-4 sm:pb-8 bg-white dark:bg-gray-800 shadow-md rounded-3xl grid grid-rows-181 gap-4">
-            <TakeQuizHeader quiz={quiz} takeQuizState={takeQuizState} />
+            <TakeQuizHeader
+              quiz={quiz}
+              takeQuizState={takeQuizState}
+              disptachSubmitQuiz={dispatchSubmitQuiz}
+              submitQuizState={submitQuizState}
+            />
 
             {submitQuiz ? (
               <SubmitQuiz quiz={quiz} takeQuizState={takeQuizState} />
@@ -73,10 +78,6 @@ export const TakeQuiz = () => {
                 dispatchSubmitQuiz={dispatchSubmitQuiz}
               />
             )}
-
-            {/* {showQuitQuizModal && (
-              <QuitQuizModal dispatchSubmitQuiz={dispatchSubmitQuiz} />
-            )} */}
 
             <TakeQuizNav {...takeQuizNavProps} />
           </article>
