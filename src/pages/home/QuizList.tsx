@@ -11,7 +11,7 @@ export const QuizList: React.FC = () => {
     <section className="text-center font-semibold mt-8 pb-24 tracking-wider ">
       {status === "loading" && <Loader />}
       {status === "success" && (
-        <ul className="flex flex-wrap justify-center sm:justify-start gap-12 mt-8">
+        <ul className="flex flex-wrap justify-center sm:justify-start gap-16 mt-8">
           {quizzes?.map((quiz: Quiz) => {
             return (
               <li key={quiz._id}>

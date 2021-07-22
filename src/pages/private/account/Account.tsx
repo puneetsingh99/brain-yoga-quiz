@@ -99,9 +99,14 @@ export const Account = () => {
               <FloatingLogout />
             </div>
             {user.quizzesTaken.length === 0 ? (
-              <h1>You have not yet taken any quiz</h1>
+              <div className={`text-center`}>
+                <h1 className={`text-lg m-auto mb-4`}>
+                  You have not yet taken any quiz
+                </h1>
+                <p>Visit home and take quiz to see your stats</p>
+              </div>
             ) : (
-              <div className=" flex flex-col justify-between items-center sm:items-end sm:flex-row gap-4 sm:gap-8">
+              <div className="flex flex-col justify-between items-center sm:items-start sm:flex-row gap-4 sm:gap-8">
                 <div className="w-full sm:w-4/12">
                   <Stats
                     quizzesTaken={user.quizzesTaken}

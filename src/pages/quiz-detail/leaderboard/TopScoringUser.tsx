@@ -21,11 +21,25 @@ const giveMedal = (rank: number): string => {
   }
 };
 
-export const TopScoringUser = ({ topScorer }: { topScorer: TopScorer }) => {
+export const TopScoringUser = ({
+  topScorer,
+  idx,
+  total,
+}: {
+  topScorer: TopScorer;
+  idx: number;
+  total: number;
+}) => {
   const { username } = topScorer.user;
   const { rank, score } = topScorer;
   return (
-    <li className="w-full flex justify-between items-center px-2 pb-2 rounded text-white text-gray-900 dark:text-gray-100">
+    <li
+      className={`flex justify-between px-2 py-2 ${
+        idx === total - 1
+          ? `rounded-b-2xl `
+          : "border-b border-gray-300 dark:border-gray-600"
+      } `}
+    >
       {[1, 2, 3].includes(rank) ? (
         <div className="w-3/12 flex justify-start items-center">
           <img src={giveMedal(rank)} alt="crown" className="w-6 h-6" />

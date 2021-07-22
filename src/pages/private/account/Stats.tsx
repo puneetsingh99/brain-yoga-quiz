@@ -14,9 +14,9 @@ export const Stats = ({
   const length = quizzesTaken.length;
 
   return (
-    <section className="w-full rounded-2xl mt-2">
+    <section className="w-full rounded-2xl">
       <div>
-        <div className="flex justify-between p-4 pb-2 mt-4 border border-gray-300 dark:border-gray-600 rounded-t-2xl border-b dark:border-gray-600 border-gray-100 dark:bg-gray-700">
+        <div className="flex justify-between p-4 pb-2 border border-b dark:border-gray-600 border-gray-200 dark:bg-gray-700  rounded-t-2xl">
           <p>Quiz</p>
           <p>Score</p>
         </div>
