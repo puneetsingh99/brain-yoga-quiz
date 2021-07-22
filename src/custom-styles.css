@@ -57,11 +57,15 @@ html {
 .spinner {
   width: 60px;
   height: 60px;
+  border-radius: 10px;
   background-color: #fa71cd;
-
   margin: 100px auto;
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
   animation: sk-rotateplane 1.2s infinite ease-in-out;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 @-webkit-keyframes sk-rotateplane {
@@ -202,14 +206,6 @@ gradients
   left: 0;
   right: 0;
   z-index: 30;
-}
-
-.neon-text {
-  border: 0.2rem solid #fff;
-  border-radius: 2rem;
-  padding: 0.4em;
-  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
-    0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
 }
 
 .bg-semi-transparent {
