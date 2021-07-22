@@ -40,9 +40,9 @@ export const TakeQuizHeader = ({
                 payload: true,
               })
             }
-            className="p-2 rounded-full flex justify-center items-center  cursor-pointer dark:bg-gray-700 bg-gray-100 hover:bg-green-500 dark:hover:bg-red-300"
+            className="p-2 rounded-full flex justify-center items-center  cursor-pointer dark:bg-gray-700 bg-gray-100 hover:bg-green-500 dark:hover:bg-red-500 dark:hover:bg-opacity-30 hover:bg-opacity-30"
           >
-            <X size={18} />
+            <X size={20} />
           </div>
           <p className="ml-6 text-lg p-1 px-2  rounded-xl dark:bg-gray-700 bg-gray-100 ">
             {`${currQuestion + 1}/${questionList.length}`}
