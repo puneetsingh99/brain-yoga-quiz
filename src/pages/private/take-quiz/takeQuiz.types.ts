@@ -1,5 +1,3 @@
-import { Quiz } from "../../../types";
-
 export type Response = {
   questionId: string;
   optionId: string;

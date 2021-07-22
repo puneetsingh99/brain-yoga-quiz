@@ -1,13 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Navbar, NavMobile } from "../../../components";
 import { Loader } from "../../../components";
 import { useTakeQuiz } from "./useTakeQuiz";
 import { TakeQuizHeader } from "./components/TakeQuizHeader";
 import { TakeQuizMain } from "./components/TakeQuizMain";
 import { TakeQuizNav } from "./components/TakeQuizNav";
-import { useState, useReducer } from "react";
-import { SubmitQuizModal } from "./components/SubmitQuizModal";
-import { QuitQuizModal } from "./components/QuitQuizModal";
+import { useReducer } from "react";
+import { Modal } from "./components/Modal";
 import { SubmitQuizState } from "./takeQuiz.types";
 import { submitQuizStateReducer } from "./utils/submitQuizStateReducer";
 import { SubmitQuiz } from "./components/submit-quiz/SubmitQuiz";
@@ -21,6 +20,7 @@ const initialSubmitQuizState: SubmitQuizState = {
 
 export const TakeQuiz = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { quiz, status, error, takeQuizState, takeQuizDispatch } =
     useTakeQuiz(id);
 
@@ -32,19 +32,19 @@ export const TakeQuiz = () => {
   const { submitQuiz, showSubmitQuizModal, quitQuiz, showQuitQuizModal } =
     submitQuizState;
 
-  console.log("submitQuizState");
-  console.log(submitQuizState);
-
   const takeQuizNavProps = {
     takeQuizState,
     takeQuizDispatch,
     dispatchSubmitQuiz,
+    submitQuiz,
   };
 
   const takeQuizMainProps = {
     takeQuizState,
     takeQuizDispatch,
   };
+
+  quitQuiz && navigate("/");
 
   return (
     <>
@@ -62,15 +62,21 @@ export const TakeQuiz = () => {
             )}
 
             {showSubmitQuizModal && (
-              <SubmitQuizModal
+              <Modal
+                submitQuizState={submitQuizState}
+                dispatchSubmitQuiz={dispatchSubmitQuiz}
+              />
+            )}
+            {showQuitQuizModal && (
+              <Modal
                 submitQuizState={submitQuizState}
                 dispatchSubmitQuiz={dispatchSubmitQuiz}
               />
             )}
 
-            {showQuitQuizModal && (
+            {/* {showQuitQuizModal && (
               <QuitQuizModal dispatchSubmitQuiz={dispatchSubmitQuiz} />
-            )}
+            )} */}
 
             <TakeQuizNav {...takeQuizNavProps} />
           </article>

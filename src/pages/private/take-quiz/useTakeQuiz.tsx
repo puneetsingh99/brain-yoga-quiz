@@ -59,13 +59,11 @@ export const useTakeQuiz = (id: string) => {
         const updateQuestionList = {
           ...state,
           questionList: questionList,
-          // presentInLeaderBoard: presentInLeaderBoard,
         };
         setPersistentQuizState(updateQuestionList);
         return updateQuestionList;
 
       case "SET_RESPONSE":
-        //find the question from the payload and set the selectedOptionId to the one sent in payload and update the same in the localstorage
         const { optionId, questionId } = action.payload;
         const updateState = {
           ...state,
