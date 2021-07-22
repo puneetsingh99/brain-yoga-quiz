@@ -34,9 +34,9 @@ export const Result = ({
   return (
     <div className={`w-full `}>
       <div
-        className={`p-4 w-max m-auto text-center text-3xl rounded-2xl mb-10 gradient-bg`}
+        className={`p-4 w-max m-auto text-center text-3xl rounded-2xl mb-10 gradient-bg  text-white`}
       >
-        <h1 className={`mb-2 text-white`}>Your Score</h1>
+        <h1 className={`mb-2`}>Your Score</h1>
         <h1>{score}</h1>
       </div>
       <div>

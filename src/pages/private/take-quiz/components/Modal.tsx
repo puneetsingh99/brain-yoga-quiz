@@ -37,7 +37,7 @@ export const Modal = ({
         <h1 className={`text-2xl mb-16 text-center`}>Are you sure?</h1>
         <div className={`flex justify-center`}>
           <button
-            className={`px-3 py-2 mr-6 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold dark:text-gray-100 transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
+            className={`px-3 py-2 mr-6 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold dark:text-gray-100 text-gray-800 transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
             onClick={handleShowHide}
           >
             Cancel
