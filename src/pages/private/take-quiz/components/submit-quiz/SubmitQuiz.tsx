@@ -19,7 +19,7 @@ export const SubmitQuiz = ({
   );
 
   const { submitQuizState } = useSubmitQuiz(quizId, score, timeInMins);
-  const { status, error, updatedUser } = submitQuizState;
+  const { status, error } = submitQuizState;
 
   return (
     <section>

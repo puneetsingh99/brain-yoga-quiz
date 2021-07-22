@@ -37,14 +37,11 @@ const takeQuizInitialState: TakeQuiz = {
 export const useTakeQuiz = (id: string) => {
   const { userId } = useAuth();
   const { status, quiz, error } = useQuiz(id);
-  console.log({ status, quiz, error });
 
   const [persistentQuizState, setPersistentQuizState] = useLocalStorage(
     "persistentQuizState",
     takeQuizInitialState
   );
-
-  console.log({ persistentQuizState });
 
   const takeQuizReducer = (
     state: TakeQuiz,

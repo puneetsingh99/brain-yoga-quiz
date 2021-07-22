@@ -29,6 +29,8 @@ export const useSubmitQuiz = (
 
   const [state, dispatch] = useReducer(submitQuizReducer, initialState);
 
+  useEffect(() => {}, [setPayload]);
+
   useEffect(() => {
     (async function () {
       const response = await submitQuiz(userId, payload);

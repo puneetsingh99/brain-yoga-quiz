@@ -29,7 +29,7 @@ export const Timer = ({
       localStorage.removeItem("timer");
       clearTimeout(interval);
     };
-  }, [timer, setPersistTimer]);
+  }, [timer, setPersistTimer, setTimerExpired]);
 
   return <p>{formatTimer(timer)}</p>;
 };

@@ -27,7 +27,7 @@ export const Result = ({
         setCheckLeaderBoard(true);
       }
     }
-  }, [quiz]);
+  }, [quiz, userId]);
 
   const enteredInLeaderBoard = !presentInLeaderBoard && checkLeaderBoard;
 

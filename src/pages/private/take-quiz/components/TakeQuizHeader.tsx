@@ -7,7 +7,6 @@ import {
 } from "../takeQuiz.types";
 import { Timer } from "./Timer";
 import { formatTimer } from "../utils/formatTimer";
-import { submitQuiz } from "../../../../services/submitQuiz";
 import { useState, useEffect } from "react";
 
 type TakeQuizHeaderType = {
@@ -31,7 +30,7 @@ export const TakeQuizHeader = ({
     if (timerExpired) {
       disptachSubmitQuiz({ type: "SUBMIT_QUIZ", payload: true });
     }
-  }, [timerExpired]);
+  }, [timerExpired, disptachSubmitQuiz]);
 
   return (
     <div

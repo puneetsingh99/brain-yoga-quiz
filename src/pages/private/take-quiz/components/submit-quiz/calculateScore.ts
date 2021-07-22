@@ -1,4 +1,4 @@
-import { QuestionAndResponse, TakeQuiz } from "../../takeQuiz.types";
+import { QuestionAndResponse } from "../../takeQuiz.types";
 
 export const calculateScore = (
   questionsWithResponse: QuestionAndResponse[],

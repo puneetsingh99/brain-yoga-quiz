@@ -1,7 +1,6 @@
 import { Quiz } from "../../../../types";
 import { TakeQuiz, TAKE_QUIZ_ACTION } from "../takeQuiz.types";
 import test_img from "../../../../assets/test_img.jpg";
-import { useState } from "react";
 
 type TakeQuizMainType = {
   quiz: Quiz;
