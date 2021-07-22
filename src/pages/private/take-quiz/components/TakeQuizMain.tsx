@@ -14,8 +14,7 @@ export const TakeQuizMain = ({
   takeQuizState,
   takeQuizDispatch,
 }: TakeQuizMainType) => {
-  const { currQuestion, presentInLeaderBoard, score, questionList } =
-    takeQuizState;
+  const { currQuestion, questionList } = takeQuizState;
 
   return (
     <section className="flex justify-between pt-4">

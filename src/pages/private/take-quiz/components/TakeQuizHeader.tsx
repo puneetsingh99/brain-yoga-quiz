@@ -8,6 +8,7 @@ import {
 import { Timer } from "./Timer";
 import { formatTimer } from "../utils/formatTimer";
 import { submitQuiz } from "../../../../services/submitQuiz";
+import { useState, useEffect } from "react";
 
 type TakeQuizHeaderType = {
   quiz: Quiz;
@@ -24,6 +25,13 @@ export const TakeQuizHeader = ({
 }: TakeQuizHeaderType) => {
   const { currQuestion, questionList } = takeQuizState;
   const { submitQuiz } = submitQuizState;
+  const [timerExpired, setTimerExpired] = useState(false);
+
+  useEffect(() => {
+    if (timerExpired) {
+      disptachSubmitQuiz({ type: "SUBMIT_QUIZ", payload: true });
+    }
+  }, [timerExpired]);
 
   return (
     <div
@@ -40,7 +48,7 @@ export const TakeQuizHeader = ({
                 payload: true,
               })
             }
-            className="p-2 rounded-full flex justify-center items-center  cursor-pointer dark:bg-gray-700 bg-gray-100 hover:bg-green-500 dark:hover:bg-red-500 dark:hover:bg-opacity-30 hover:bg-opacity-30"
+            className="p-2 rounded-full flex justify-center items-center  cursor-pointer dark:bg-gray-700 bg-gray-100 hover:bg-red-500 dark:hover:bg-red-500 dark:hover:bg-opacity-50 hover:bg-opacity-30"
           >
             <X size={20} />
           </div>
@@ -57,10 +65,13 @@ export const TakeQuizHeader = ({
       {!submitQuiz && (
         <div className="w-full hidden sm:flex justify-end items-center">
           <div className="flex w-max items-center p-2 rounded-xl dark:bg-gray-700 bg-gray-100 cursor-pointer">
-            <h1>Timer: </h1>
+            <h1 className={`hidden sm:block`}>Timer: </h1>
             <div className="ml-1 w-50 flex justify-end items-center">
               {quiz.timelimit !== 0 ? (
-                <Timer timelimit={quiz.timelimit} />
+                <Timer
+                  timelimit={quiz.timelimit}
+                  setTimerExpired={setTimerExpired}
+                />
               ) : (
                 <p>{formatTimer(0)}</p>
               )}

@@ -1,4 +1,4 @@
-import { Question, Quiz } from "../../../../../../types";
+import { Quiz } from "../../../../../../types";
 import { QuestionAndResponse, TakeQuiz } from "../../../takeQuiz.types";
 import { calculateScore } from "../calculateScore";
 
