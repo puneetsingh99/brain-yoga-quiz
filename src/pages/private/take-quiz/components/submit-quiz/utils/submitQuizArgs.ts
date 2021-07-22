@@ -7,10 +7,12 @@ export const submitQuizArgs = (quiz: Quiz, takeQuizState: TakeQuiz) => {
 
   const points: number = quiz.score;
   const negativePoints: number = quiz.negativeScore;
+  const timeLimit = quiz.timelimit * 60;
 
   const questionList: QuestionAndResponse[] = takeQuizState.questionList;
   const time = persistentTime && JSON.parse(persistentTime);
-  const timeInMins: number = Math.round((time / 60) * 100) / 100;
+  const timeInMins: number = Math.round(((timeLimit - time) / 60) * 100) / 100;
+  console.log("time in mins coming from submitquiz args", { timeInMins });
 
   const score = calculateScore(questionList, points, negativePoints);
 

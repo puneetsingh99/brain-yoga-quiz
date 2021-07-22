@@ -24,16 +24,12 @@ export const Result = ({
         (user) => user.user._id === userId
       );
       if (gotInLeaderBoard) {
-        console.log({ gotInLeaderBoard });
         setCheckLeaderBoard(true);
       }
     }
   }, [quiz]);
 
-  console.log({ checkLeaderBoard, presentInLeaderBoard });
-
   const enteredInLeaderBoard = !presentInLeaderBoard && checkLeaderBoard;
-  console.log({ enteredInLeaderBoard });
 
   return (
     <div className={`w-full `}>
