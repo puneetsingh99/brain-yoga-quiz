@@ -597,7 +597,7 @@ video {
   --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.border, .border-4, .border-b, .border-t{
+.border, .border-4, .border-0, .border-b, .border-t{
   --tw-border-opacity: 1;
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
@@ -635,6 +635,13 @@ video {
   position: sticky;
 }
 
+.inset-0{
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
 .top-0{
   top: 0px;
 }
@@ -649,6 +656,10 @@ video {
 
 .z-20{
   z-index: 20;
+}
+
+.z-40{
+  z-index: 40;
 }
 
 .m-auto{
@@ -743,6 +754,18 @@ video {
 
 .ml-4{
   margin-left: 1rem;
+}
+
+.mr-4{
+  margin-right: 1rem;
+}
+
+.mr-6{
+  margin-right: 1.5rem;
+}
+
+.mb-16{
+  margin-bottom: 4rem;
 }
 
 .flex{
@@ -966,6 +989,10 @@ video {
   border-width: 4px;
 }
 
+.border-0{
+  border-width: 0px;
+}
+
 .border-b{
   border-bottom-width: 1px;
 }
@@ -1029,6 +1056,10 @@ video {
   background-color: rgba(248, 113, 113, var(--tw-bg-opacity));
 }
 
+.bg-transparent{
+  background-color: transparent;
+}
+
 .bg-opacity-95{
   --tw-bg-opacity: 0.95;
 }
@@ -1087,6 +1118,11 @@ video {
 .px-6{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-3{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .pt-1{
@@ -1171,6 +1207,28 @@ video {
 .text-red-500{
   --tw-text-opacity: 1;
   color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.text-gray-700{
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+
+.text-gray-500{
+  --tw-text-opacity: 1;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+
+.opacity-50{
+  opacity: 0.5;
+}
+
+.opacity-100{
+  opacity: 1;
+}
+
+.opacity-60{
+  opacity: 0.6;
 }
 
 .shadow-sm{
@@ -1431,6 +1489,18 @@ video {
 
   .sm\:w-6\/12{
     width: 50%;
+  }
+
+  .sm\:w-300{
+    width: 300px;
+  }
+
+  .sm\:w-350{
+    width: 350px;
+  }
+
+  .sm\:w-200{
+    width: 200px;
   }
 
   .sm\:max-w-1000{

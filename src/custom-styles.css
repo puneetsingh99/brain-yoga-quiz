@@ -201,7 +201,7 @@ gradients
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 30;
 }
 
 .neon-text {
@@ -210,4 +210,8 @@ gradients
   padding: 0.4em;
   box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
     0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+}
+
+.bg-semi-transparent {
+  background-color: rgba(0, 0, 0, 0.6);
 }
