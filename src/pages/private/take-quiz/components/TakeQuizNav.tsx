@@ -41,7 +41,7 @@ export const TakeQuizNav = ({
             <div className="w-8/12   flex justify-end">
               {firstQuestion ? (
                 <button
-                  className={`px-6 py-2 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold text-white transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
+                  className={`px-6 py-2 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold dark:text-gray-100 transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
                   onClick={() =>
                     dispatchSubmitQuiz({
                       type: "SHOW_QUIT_QUIZ_MODAL",
@@ -53,7 +53,7 @@ export const TakeQuizNav = ({
                 </button>
               ) : (
                 <button
-                  className={`px-6 py-2 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold text-white transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
+                  className={`px-6 py-2 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold dark:text-gray-100 transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
                   onClick={() => {
                     takeQuizDispatch({
                       type: "SET_CURRENT_QUESTION",

@@ -40,7 +40,7 @@ export const TakeQuizMain = ({
                           },
                         });
                       }}
-                      className={`px-2 py-3 mt-4 rounded-xl dark:bg-gray-700 dark:hover:bg-gray-600 bg-gray-100 cursor-pointer transition duration-300 ease-in-out ${
+                      className={`px-2 py-3 mt-4 rounded-xl dark:bg-gray-700 dark:hover:bg-gray-600 bg-gray-100 cursor-pointer transition duration-100 ease-in-out ${
                         isSelected &&
                         `dark:bg-gray-500 bg-gray-200 ring-4 ring-blue-500 ring-opacity-60`
                       }`}

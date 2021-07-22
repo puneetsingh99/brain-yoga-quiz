@@ -12,7 +12,7 @@ export const NavDesktop = () => {
       <Link to={ROUTE_HOME} className="text-link">
         <p
           className={`sm:px-2 sm:py-4 sm:block font-semibold text-lg text-gray-900 dark:text-gray-100 dark:hover:text-dark-200 hover:text-gray-700 cursor-pointer ${
-            pathname === ROUTE_HOME && `active`
+            pathname === ROUTE_HOME ? `active` : `inactive`
           }`}
         >
           Home
@@ -22,7 +22,7 @@ export const NavDesktop = () => {
       <Link to={ROUTE_ACCOUNT} className="text-link">
         <p
           className={`sm:px-2 sm:py-4  sm:block text-lg font-semibold dark:text-gray-50 cursor-pointer  dark:hover:text-dark-200 hover:text-gray-700 ${
-            pathname === ROUTE_ACCOUNT && `active`
+            pathname === ROUTE_ACCOUNT ? `active` : `inactive`
           }`}
         >
           Account
