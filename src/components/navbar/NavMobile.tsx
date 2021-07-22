@@ -13,7 +13,7 @@ export const NavMobile = () => {
         <Link to={ROUTE_ACCOUNT} className="text-link">
           <div
             className={`p-4 cursor-pointer ${
-              pathname === ROUTE_ACCOUNT ? `active-route` : `inactive`
+              pathname === ROUTE_ACCOUNT ? `active` : `inactive`
             }`}
           >
             <User />
@@ -23,7 +23,7 @@ export const NavMobile = () => {
         <Link to={ROUTE_HOME} className="text-link">
           <div
             className={`p-4 cursor-pointer ${
-              pathname === ROUTE_HOME ? `active-route` : `inactive`
+              pathname === ROUTE_HOME ? `active` : `inactive`
             }`}
           >
             <Home />
