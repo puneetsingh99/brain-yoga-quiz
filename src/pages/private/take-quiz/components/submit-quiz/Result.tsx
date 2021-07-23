@@ -34,7 +34,7 @@ export const Result = ({
   return (
     <div className={`w-full `}>
       <div
-        className={`p-4 w-max m-auto text-center text-3xl rounded-2xl mb-10 gradient-bg  text-white`}
+        className={`p-4 w-max m-auto text-center text-3xl rounded-2xl mb-4 sm:mb-10 gradient-bg  text-white`}
       >
         <h1 className={`mb-2`}>Your Score</h1>
         <h1>{score}</h1>
@@ -42,10 +42,12 @@ export const Result = ({
       <div>
         {quiz && enteredInLeaderBoard && (
           <div className={`text-center`}>
-            <h1 className={`text-2xl mb-2`}>
+            <h1 className={`text-xl sm:text-2xl sm:mb-2`}>
               Congratulations!<span>🥳 🎉</span>
             </h1>
-            <h1 className={`text-2xl`}>You made it to the Leaderboard!</h1>
+            <h1 className={`text-xl sm:text-2xl`}>
+              You made it to the Leaderboard!
+            </h1>
             <Confetti />
           </div>
         )}

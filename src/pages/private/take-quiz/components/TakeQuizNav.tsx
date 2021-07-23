@@ -29,16 +29,16 @@ export const TakeQuizNav = ({
     <section className={`w-full flex items-center justify-end`}>
       {submitQuiz && (
         <button
-          className={`m-auto px-6 py-2 rounded-lg gradient-bg font-semibold text-white transition duration-100 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
+          className={`mt-8 sm:m-auto px-6 py-2 rounded-lg gradient-bg font-semibold text-white transition duration-100 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
           onClick={() => navigate("/")}
         >
           {`Done`}
         </button>
       )}
       {!submitQuiz && (
-        <div className="w-3/6 flex flex-start">
+        <div className="w-full sm:w-3/6 flex">
           {!submitQuiz && (
-            <div className="w-8/12   flex justify-end">
+            <div className="w-8/12 flex sm:justify-end justify-between">
               {firstQuestion ? (
                 <button
                   className={`px-6 py-2 rounded-lg dark:bg-gray-700 bg-gray-100 dark:hover:bg-gray-600 bg-gray-200 font-semibold dark:text-gray-100 transition duration-200 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}
@@ -68,7 +68,7 @@ export const TakeQuizNav = ({
           )}
 
           {!submitQuiz && (
-            <div className="w-4/12 flex justify-end">
+            <div className="w-full sm:w-4/12 flex justify-end">
               {lastQuestion ? (
                 <button
                   className={`px-6 py-2 rounded-lg gradient-bg font-semibold text-white transition duration-100 ease-in-out focus:ring-4 ring-blue-500 ring-opacity-60`}

@@ -25,9 +25,12 @@ export const SubmitQuiz = ({
     <section>
       {status === "submitting" && <Loader />}
       {status === "success" && (
-        <section className="flex justify-between">
+        <section className="sm:flex justify-between">
+          <article className="sm:hidden w-full sm:w-6/12 p-4 px-0 flex justify-center">
+            <Result quizId={quiz._id} score={score} />
+          </article>
           <Responses questionList={questionList} />
-          <article className="w-full sm:w-6/12 p-4 px-0 flex justify-center">
+          <article className="hidden w-full sm:w-6/12 p-4 px-0 sm:flex justify-center">
             <Result quizId={quiz._id} score={score} />
           </article>
         </section>

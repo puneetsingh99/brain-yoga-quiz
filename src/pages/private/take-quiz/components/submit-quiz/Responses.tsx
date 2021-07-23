@@ -6,7 +6,7 @@ export const Responses = ({
   questionList: QuestionAndResponse[];
 }) => {
   return (
-    <article className="w-full mt-4 sm:w-5/12 pr-4 gap-6 overflow-scroll sm:h-350 hide-scroll">
+    <article className="w-full sm:mt-4 sm:w-5/12 sm:pr-4 gap-6 overflow-scroll h-350 sm:h-350 hide-scroll">
       {questionList.length > 0 && (
         <div className="h-full">
           {questionList.map((question, idx) => {

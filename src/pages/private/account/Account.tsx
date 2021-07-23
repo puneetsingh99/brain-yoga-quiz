@@ -79,10 +79,10 @@ export const Account = () => {
   return (
     <>
       <Navbar />
-      <main className="w-full sm:w-11/12 m-auto sm:p-4 sm:pb-8 p-2 pb-8  flex justify-center items-center">
+      <main className="w-full sm:w-11/12 m-auto sm:p-4 sm:pb-8 p-2  flex justify-center items-center">
         {status === "loading" && <Loader />}
         {status === "success" && user && (
-          <article className="w-full sm:max-w-800 sm:min-h-500 m-auto p-4 px-6 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
+          <article className="w-full sm:max-w-800 sm:min-h-500 sm:m-auto p-4 px-6 bg-white dark:bg-gray-800 shadow-md rounded-3xl mb-24">
             <div className="flex justify-between items-center w-full mb-6 sm:mb-8">
               <h1 className="text-2xl tracking-wider">Dashboard</h1>
               <div className="flex justify-end items-center">

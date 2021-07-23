@@ -32,7 +32,7 @@ export const Modal = ({
       className={`flex items-center justify-center fixed inset-0 z-40 bg-semi-transparent`}
     >
       <div
-        className={`w-11/12 sm:w-200 py-4 px-2 rounded-2xl bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-100`}
+        className={`w-200 py-4 px-2 rounded-2xl bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-100`}
       >
         <h1 className={`text-2xl mb-16 text-center`}>Are you sure?</h1>
         <div className={`flex justify-center`}>

@@ -16,14 +16,21 @@ export const TakeQuizMain = ({
   const { currQuestion, questionList } = takeQuizState;
 
   return (
-    <section className="flex justify-between pt-4">
+    <section className="sm:flex justify-between sm:pt-4 mb-4">
       <article className="w-full sm:w-5/12 gap-6">
         {questionList.length > 0 && (
-          <div className="h-full">
-            <h1 className="text-xl mb-8">
+          <div className="sm:h-full">
+            <h1 className="text-xl sm:mb-8 mb-4">
               {`${currQuestion + 1}. ${questionList[currQuestion].question}`}
             </h1>
-            <ul className="">
+            <div className="sm:hidden w-full sm:w-6/12 sm:p-4 px-0 sm:flex justify-center items-end">
+              <img
+                className="rounded-2xl border dark:border-gray-700 border-gray-200"
+                src={test_img}
+                alt="helps explaining the question"
+              />
+            </div>
+            <ul>
               {questionList[currQuestion].options.map(
                 ({ _id, option }, idx) => {
                   const isSelected =
@@ -53,7 +60,7 @@ export const TakeQuizMain = ({
         )}
       </article>
 
-      <div className="w-full sm:w-6/12 p-4 px-0 flex justify-center items-end">
+      <div className="hidden w-full sm:w-6/12 p-4 px-0 sm:flex justify-center items-end">
         <img
           className="rounded-2xl border dark:border-gray-700 border-gray-200"
           src={test_img}

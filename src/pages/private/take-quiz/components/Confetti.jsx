@@ -5,6 +5,10 @@ export const Confetti = () => {
   const [showConfetti, setShowConfetti] = useState(true);
 
   useEffect(() => {
+    setShowConfetti(true);
+  }, []);
+
+  useEffect(() => {
     const confettiSettings = {
       target: "confetti-canvas",
       max: 200,
@@ -22,6 +26,7 @@ export const Confetti = () => {
     return () => {
       clearTimeout(timer);
       confetti.clear();
+      setShowConfetti(false);
     };
   }, [showConfetti]);
   return (

@@ -11,7 +11,7 @@ export const QuizDetailDesktop = ({ quiz, id }: { quiz: Quiz; id: string }) => {
       <div className="w-full flex justify-center px-4 pb-4 sm:pb-0">
         <h2 className="text-2xl mb-4 m-auto">{`${quiz.name}`}</h2>
       </div>
-      <section className={`flex gap-8`}>
+      <section className={`flex gap-8 justify-between`}>
         <article className="hidden sm:block w-full sm:w-375 text-lg bg-white dark:bg-gray-800 p-4 rounded-3xl">
           <p>{`No of questions: ${quiz.questions.length}`}</p>
           <p>{`Duration: ${quiz.timelimit} minutes`}</p>
@@ -44,7 +44,9 @@ export const QuizDetailDesktop = ({ quiz, id }: { quiz: Quiz; id: string }) => {
             </Link>
           </div>
         </article>
-        <LeaderBoard topScorers={quiz.topScorers} />
+        <article className={`mr-4`}>
+          <LeaderBoard topScorers={quiz.topScorers} />
+        </article>
       </section>
     </section>
   );

@@ -49,10 +49,10 @@ export const TakeQuiz = () => {
   return (
     <>
       <Navbar />
-      <main className="w-full sm:w-11/12 m-auto py-4">
+      <main className="w-full sm:w-11/12 sm:m-auto p-4 h-screen sm:h-auto">
         {status === "loading" && <Loader />}
         {status === "success" && quiz && (
-          <article className="w-full sm:max-w-800 sm:min-h-500 m-auto p-4 px-4 sm:p-4 sm:pb-8 bg-white dark:bg-gray-800 shadow-md rounded-3xl grid grid-rows-181 gap-4">
+          <article className="w-full min-h-650 sm:max-w-800 sm:min-h-500 m-auto p-4 px-4 sm:p-4 sm:pb-8 bg-white dark:bg-gray-800 shadow-md rounded-3xl sm:grid grid-rows-181 gap-4">
             <TakeQuizHeader
               quiz={quiz}
               takeQuizState={takeQuizState}
