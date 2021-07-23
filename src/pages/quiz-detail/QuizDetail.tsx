@@ -51,10 +51,16 @@ export const QuizDetail: React.FC = () => {
                     <h2 className="text-2xl mb-4 m-auto">{`${quiz.name}`}</h2>
                   </div>
 
-                  <p>{`No of questions: ${quiz.questions.length}`}</p>
-                  <p>{`Duration: ${quiz.timelimit} minutes`}</p>
-                  <p className="mt-4 mb-2">Rules:</p>
-                  <ul className="mb-4">
+                  <p
+                    className={`dark:text-gray-300 text-gray-600`}
+                  >{`No of questions: ${quiz.questions.length}`}</p>
+                  <p
+                    className={`dark:text-gray-300 text-gray-600`}
+                  >{`Duration: ${quiz.timelimit} minutes`}</p>
+                  <p className="mt-4 mb-2 dark:text-gray-300 text-gray-600">
+                    Rules:
+                  </p>
+                  <ul className="mb-4 dark:text-gray-300 text-gray-600">
                     <li className="list-disc ml-8 mb-2">{`Submit quiz before the timer expires.`}</li>
                     <li className="list-disc ml-8 mb-2">
                       <span className="font-semibold mb-2">{quiz.score}</span>

@@ -12,7 +12,7 @@ export const QuizDetailDesktop = ({ quiz, id }: { quiz: Quiz; id: string }) => {
         <h2 className="text-2xl mb-4 m-auto">{`${quiz.name}`}</h2>
       </div>
       <section className={`flex gap-8 justify-between`}>
-        <article className="hidden sm:block w-full sm:w-375 text-lg dark:text-gray-300 text-gray-700 bg-white dark:bg-gray-800 p-4 rounded-3xl">
+        <article className="hidden sm:block w-full sm:w-375 text-lg dark:text-gray-300 text-gray-600 bg-white dark:bg-gray-800 p-4 rounded-3xl">
           <p>{`No of questions: ${quiz.questions.length}`}</p>
           <p>{`Duration: ${quiz.timelimit} minutes`}</p>
           <p className="mt-4 mb-2">Rules:</p>
