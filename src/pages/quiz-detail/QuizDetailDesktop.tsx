@@ -12,14 +12,14 @@ export const QuizDetailDesktop = ({ quiz, id }: { quiz: Quiz; id: string }) => {
         <h2 className="text-2xl mb-4 m-auto">{`${quiz.name}`}</h2>
       </div>
       <section className={`flex gap-8 justify-between`}>
-        <article className="hidden sm:block w-full sm:w-375 text-lg bg-white dark:bg-gray-800 p-4 rounded-3xl">
+        <article className="hidden sm:block w-full sm:w-375 text-lg dark:text-gray-300 text-gray-700 bg-white dark:bg-gray-800 p-4 rounded-3xl">
           <p>{`No of questions: ${quiz.questions.length}`}</p>
           <p>{`Duration: ${quiz.timelimit} minutes`}</p>
           <p className="mt-4 mb-2">Rules:</p>
           <ul className="mb-4">
             <li className="list-disc ml-8 mb-2">{`Submit quiz before the timer expires.`}</li>
             <li className="list-disc ml-8 mb-2">
-              <span className="font-semibold mb-2">{quiz.score}</span>
+              <span className="mb-2">{quiz.score}</span>
               {` points for correct answer.`}
             </li>
             <li className="list-disc ml-8 mb-2">
@@ -27,8 +27,8 @@ export const QuizDetailDesktop = ({ quiz, id }: { quiz: Quiz; id: string }) => {
                 `No negative points.`
               ) : (
                 <p>
-                  <span className="font-semibold">{quiz.negativeScore}</span>{" "}
-                  points for an incorrect answer.
+                  <span>{quiz.negativeScore}</span> points for an incorrect
+                  answer.
                 </p>
               )}
             </li>
