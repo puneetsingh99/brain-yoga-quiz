@@ -25,6 +25,7 @@ export type Question = {
   _id: string;
   question: string;
   options: Option[];
+  image?: string;
 };
 
 export type TopScorer = {

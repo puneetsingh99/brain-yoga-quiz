@@ -19,6 +19,7 @@ export type QuestionAndResponse = {
   _id: string;
   question: string;
   options: Option[];
+  image?: string;
   selectedOption: "NA" | string;
 };
 

@@ -24,11 +24,19 @@ export const TakeQuizMain = ({
               {`${currQuestion + 1}. ${questionList[currQuestion].question}`}
             </h1>
             <div className="sm:hidden w-full sm:w-6/12 sm:p-4 px-0 sm:flex justify-center items-end">
-              <img
-                className="rounded-2xl border dark:border-gray-700 border-gray-200"
-                src={test_img}
-                alt="helps explaining the question"
-              />
+              {questionList[currQuestion].image ? (
+                <img
+                  className="rounded-2xl border dark:border-gray-700 border-gray-200"
+                  src={questionList[currQuestion].image}
+                  alt="helps explaining the question"
+                />
+              ) : (
+                <img
+                  className="rounded-2xl border dark:border-gray-700 border-gray-200"
+                  src={test_img}
+                  alt="helps explaining the question"
+                />
+              )}
             </div>
             <ul>
               {questionList[currQuestion].options.map(
@@ -59,14 +67,23 @@ export const TakeQuizMain = ({
           </div>
         )}
       </article>
-
-      <div className="hidden w-full sm:w-6/12 p-4 px-0 sm:flex justify-center items-end">
-        <img
-          className="rounded-2xl border dark:border-gray-700 border-gray-200"
-          src={test_img}
-          alt="helps explaining the question"
-        />
-      </div>
+      {questionList.length > 0 && (
+        <div className="hidden w-full sm:w-6/12 p-4 px-0 sm:flex justify-center items-end">
+          {questionList[currQuestion].image ? (
+            <img
+              className="rounded-2xl border dark:border-gray-700 border-gray-200"
+              src={questionList[currQuestion].image}
+              alt="helps explaining the question"
+            />
+          ) : (
+            <img
+              className="rounded-2xl border dark:border-gray-700 border-gray-200"
+              src={test_img}
+              alt="helps explaining the question"
+            />
+          )}
+        </div>
+      )}
     </section>
   );
 };
