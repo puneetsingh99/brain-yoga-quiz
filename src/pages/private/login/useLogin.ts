@@ -74,7 +74,6 @@ export const useLogin = () => {
         loginDispatch({ type: "SET_STATUS", payload: "login successful" });
         resetForm();
         navigate(location.state?.from ? location.state.from : "/");
-        //loginDispatch of User context goes here and user details are set
         return;
       }
       loginDispatch({ type: "SET_STATUS", payload: "error" });
