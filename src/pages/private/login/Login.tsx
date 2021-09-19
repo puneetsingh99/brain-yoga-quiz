@@ -11,6 +11,7 @@ export const Login = () => {
     setLoginValidation,
     loginDispatch,
     handleLogin,
+    handleGuestLogin,
     invalidPassword,
     invalidUsername,
     loginState,
@@ -28,7 +29,7 @@ export const Login = () => {
     <>
       <Navbar />
       <main className="w-full sm:w-11/12 m-auto py-4 px-2 flex justify-center items-center">
-        <article className="w-full h-500 sm:w-375 sm:h-450 m-auto py-4 px-2 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
+        <article className="w-full h-500 sm:w-375 sm:h-500 m-auto py-4 px-2 bg-white dark:bg-gray-800 shadow-md rounded-3xl">
           <div className="flex flex-col justify-center items-center w-full ">
             <h1 className="mb-2 text-2xl tracking-wider">Login</h1>
             <div className="h-2">
@@ -103,12 +104,22 @@ export const Login = () => {
             </label>
             <input
               type="submit"
-              value={`${
+              value={
                 loginState.status === "logging in" ? "Logging in..." : "Log in"
-              }`}
+              }
               disabled={loginState.status === "logging in" ? true : false}
               className={`text-white mt-1 px-4 py-3 m-auto w-11/12 rounded-lg gradient-bg cursor-pointer mb-4 focus:ring-4 focus:outline-none focus:ring-opacity-50 font-semibold`}
             />
+
+            <button
+              onClick={handleGuestLogin}
+              disabled={loginState.status === "logging in" ? true : false}
+              className={`text-white mt-1 px-4 py-3 m-auto w-11/12 rounded-lg gradient-bg cursor-pointer mb-4 focus:ring-4 focus:outline-none focus:ring-opacity-50 font-semibold`}
+            >
+              {loginState.status === "logging in"
+                ? "Logging in..."
+                : "Log in as a guest"}
+            </button>
             <p className="text-lg">
               Don't have an account?
               <Link to={ROUTE_SIGN_UP}>

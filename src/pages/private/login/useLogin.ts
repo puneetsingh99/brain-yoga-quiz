@@ -90,11 +90,35 @@ export const useLogin = () => {
     }
   };
 
+  const handleGuestLogin = async () => {
+    try {
+      loginDispatch({ type: "SET_STATUS", payload: "logging in" });
+      const response = await loginUserWithCredentials("puneet", "Puneet@123");
+      if (response.success) {
+        loginDispatch({ type: "SET_STATUS", payload: "login successful" });
+        navigate(location.state?.from ? location.state.from : "/");
+        return;
+      }
+      loginDispatch({ type: "SET_STATUS", payload: "error" });
+      loginDispatch({ type: "SET_ERROR", payload: response });
+      resetForm();
+    } catch (error) {
+      console.log("error coming from login form", error);
+      loginDispatch({ type: "SET_STATUS", payload: "error" });
+      loginDispatch({
+        type: "SET_ERROR",
+        payload: { success: false, message: "Something went wrong" },
+      });
+      resetForm();
+    }
+  };
+
   return {
     loginValidation,
     setLoginValidation,
     loginDispatch,
     handleLogin,
+    handleGuestLogin,
     invalidPassword,
     invalidUsername,
     loginState,
